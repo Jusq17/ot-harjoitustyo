@@ -1,4 +1,4 @@
-# ogso
+# Ohjelmistotekniikka 2022 projekti
 ## jhsdogjisg
 ### ohosaghjjkspgijsk
 sgspdgk **dsngsdokj** *morjes moi* ksopgsdkgpo
