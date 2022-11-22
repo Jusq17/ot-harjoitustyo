@@ -23,5 +23,10 @@
     class Peliruutu{
       ruudun tyyppi
     }
+    
+    class Noppa{
+      noppien_määrä: 2
+      nopan_silmälukujen_määrä: 6
+    }
 
 ```
