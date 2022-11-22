@@ -6,7 +6,7 @@
   
   Pelaaja --> "1" Pelinappula
   Pelinappula --> "1" Peliruutu
-  Pelilauta --> "40" Pelinappula
+  Pelilauta --> "40" Peliruutu
     
     class Pelaaja{
       nimi
