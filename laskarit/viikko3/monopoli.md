@@ -8,6 +8,10 @@
       
     }
     
+    class Pelinappula{
+    
+    }
+    
     class Pelilauta{
     
     }
