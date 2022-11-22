@@ -90,13 +90,13 @@ class logic:
         
         print("")
 
-        self.place_n()
+        #self.place_n()
 
         print(self.matrix)
 
-    def move_right(self):
+    def move_right(self, matrix):
 
-        reversed_matrix = np.fliplr(self.matrix)
+        reversed_matrix = np.fliplr(matrix)
 
         self.move_left(reversed_matrix)
 
@@ -104,21 +104,35 @@ class logic:
 
         #print(self.matrix)
 
-    def move_up(self):
+    def move_up(self, matrix):
 
-        reversed_matrix = np.transpose(self.matrix)
+        reversed_matrix = np.transpose(matrix)
 
         self.move_left(reversed_matrix)
 
-        #self.matrix = np.transpose(reversed_matrix)
+        #self.matrix = reversed_matrix
+
+        self.matrix = np.transpose(reversed_matrix)
 
         #print(self.matrix)
 
-game = logic()
+    def move_down(self, matrix):
 
-game.create_start_pos()
+        reversed_matrix = np.transpose(matrix)
 
-print(game.matrix)
+        self.move_right(reversed_matrix)
+
+        #self.matrix = reversed_matrix
+
+        self.matrix = np.transpose(reversed_matrix)
+
+        #print(self.matrix)
+
+#game = logic()
+
+#game.create_start_pos()
+
+#print(game.matrix)
 
 #for i in range(10):
 
@@ -126,18 +140,22 @@ print(game.matrix)
 
     #print(game)
 
-while True:
+#while True:
 
-    l = input("Tee siirtosi")
+    #l = input("Tee siirtosi")
 
-    if l == "a":
+    #if l == "a":
 
-        game.move_left(game.matrix)
+        #game.move_left(game.matrix)
 
-    if l == "d":
+    #if l == "d":
 
-        game.move_right()
+        #game.move_right(game.matrix)
 
-    if l == "w":
+    #if l == "w":
 
-        game.move_up()
+        #game.move_up()
+
+    #if l == "s":
+
+        #game.move_down()
