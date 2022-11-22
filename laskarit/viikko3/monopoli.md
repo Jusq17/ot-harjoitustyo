@@ -4,7 +4,7 @@
 
   classDiagram
   
-  Pelaaja "1" ---> "1" Pelinappula
+  Pelaaja "1" --> "1" Pelinappula
     
     class Pelaaja{
       
