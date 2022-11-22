@@ -29,6 +29,7 @@
     
     class Peliruutu{
       ruudun tyyppi
+      seuraava ruutu
     }
     
     class Noppa{
