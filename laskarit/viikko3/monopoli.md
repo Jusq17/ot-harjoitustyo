@@ -5,7 +5,7 @@
   classDiagram
   
   Pelaaja "1" --> "1" Pelinappula
-  Pelinappula --> "1" Peliruutu
+  Pelinappula "1..8" --> "1" Peliruutu
   Pelilauta "1" --> "40" Peliruutu
   Monopolipeli "1" --> "2" Noppa
   Monopolipeli "1" --> "1" Pelilauta
