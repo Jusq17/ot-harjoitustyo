@@ -4,9 +4,16 @@
 
   classDiagram
   
-  Pelaaja --> "1" Pelinappula
+  Pelaaja "1" --> "1" Pelinappula
   Pelinappula --> "1" Peliruutu
-  Pelilauta --> "40" Peliruutu
+  Pelilauta "1" --> "40" Peliruutu
+  Monopolipeli "1" --> "2" Noppa
+  Monopolipeli "1" --> "1" Pelilauta
+  Monopolipeli "1" --> "2..8" Pelaaja
+  
+    class Monopolipeli{
+      
+    }
     
     class Pelaaja{
       nimi
@@ -25,8 +32,7 @@
     }
     
     class Noppa{
-      noppien_määrä: 2
-      nopan_silmälukujen_määrä: 6
+      silmäluku
     }
 
 ```
