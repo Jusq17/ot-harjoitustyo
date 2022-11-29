@@ -3,6 +3,9 @@
 
   classDiagram
   
+  2048 Game --> Logic
+  2048 Game --> UI
+  
   class 2048 Game{
   
   }
