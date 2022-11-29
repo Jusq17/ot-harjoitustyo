@@ -3,10 +3,10 @@
 
   classDiagram
   
-  2048 Game --> Logic
-  2048 Game --> UI
+  Game --> Logic
+  Game --> UI
   
-  class 2048 Game{
+  class Game{
   
   }
   
