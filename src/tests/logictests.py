@@ -1,13 +1,19 @@
 
+import sys
+
+import os
+
+sys.path.append(os.getcwd() + '/..')
+
 import unittest
-from gamelogic import logic
+from .. import gamelogic
 import numpy as np
 
 class tests(unittest.TestCase):
 
     def setUp(self):
         
-        self.logic = logic()
+        self.logic = gamelogic.Logic()
 
     def test_move_left(self):
 
