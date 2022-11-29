@@ -16,6 +16,7 @@
   }
   
   class UI{
+    block_size
     draw_matrix()
     draw_UI()
   }
