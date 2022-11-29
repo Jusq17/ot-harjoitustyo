@@ -1,6 +1,7 @@
 # Ohjelmistotekniikka 2022 projekti
 ## 2048 Python peli
-sgspdgk **dsngsdokj** *morjes moi* ksopgsdkgpo
+
+[Dokumentaatio]
 
 [komentorivi.txt](https://github.com/Jusq17/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 <br />
