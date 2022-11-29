@@ -12,3 +12,4 @@ Sovellus on yksin pelattava peli, joten ei tarvita erikseen käyttäjäluokkia
 
 - Toimii kuten normaali 2048 peli puhelimella tai selaimessa
 - Graafinen käyttöliittymä
+- Tallentaa highscoren
