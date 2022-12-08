@@ -13,6 +13,9 @@ class Logic:
         self.boardSize = 4
         self.matrix1 = np.zeros((self.boardSize,self.boardSize),dtype="int")
 
+
+        self.score = 0
+
         # gameState = 0: Peli ei ole alkanut, gameState = 1: Peli on käynnissä 
         # gameState = 2: Peli loppu epäonnistuneesti, gameState = 3: Peli loppu ja 2048 saavutettu.
 
@@ -104,6 +107,7 @@ class Logic:
                 if row[l] == row[l+1]:
 
                     row[l] *= 2
+                    self.score += row[l]
                     row[l+1] = 0
 
         for l in range(self.boardSize):
@@ -123,6 +127,7 @@ class Logic:
         #self.place_n()
 
         print(self.matrix1)
+        print(self.score)
 
     def move_right(self, matrix1):
 

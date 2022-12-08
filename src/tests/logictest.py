@@ -6,7 +6,7 @@ import os
 sys.path.append(os.getcwd() + '/..')
 
 import unittest
-from .. import gamelogic
+from logic import gamelogic
 import numpy as np
 
 class tests(unittest.TestCase):
@@ -33,6 +33,7 @@ class tests(unittest.TestCase):
         self.logic.move_left(self.logic.matrix)
 
         self.assertEqual(self.logic.matrix.all(), result_matrix.all())
+        self.assertEqual(self.logic.score, 4)
 
     def test_move_right(self):
 
@@ -52,6 +53,7 @@ class tests(unittest.TestCase):
         self.logic.move_right(self.logic.matrix)
 
         self.assertEqual(self.logic.matrix.all(), result_matrix.all())
+        self.assertEqual(self.logic.score, 4)
 
     def test_move_up(self):
 
@@ -71,6 +73,7 @@ class tests(unittest.TestCase):
         self.logic.move_up(self.logic.matrix)
 
         self.assertEqual(self.logic.matrix.all(), result_matrix.all())
+        self.assertEqual(self.logic.score, 4)
 
     def test_move_down(self):
 
@@ -90,7 +93,8 @@ class tests(unittest.TestCase):
         self.logic.move_down(self.logic.matrix)
 
         self.assertEqual(self.logic.matrix.all(), result_matrix.all())
+        self.assertEqual(self.logic.score, 4)
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
 
-    unittest.main()
+    #unittest.main()
