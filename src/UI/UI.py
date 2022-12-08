@@ -6,7 +6,7 @@ class UI():
 
     def __init__(self):
 
-        #pygame.init()
+        pygame.init()
 
         #self.clock = pygame.time.Clock()
 
@@ -20,11 +20,11 @@ class UI():
         
         self.block_size = 190
 
-        #self.pointsFont = pygame.font.Font('freesansbold.ttf', 80)
+        self.pointsFont = pygame.font.Font('freesansbold.ttf', 80)
 
         #self.screen = pygame.display.set_mode(self.size)
 
-    def draw_matrix(self, matrix, screen, font):
+    def draw_matrix(self, matrix, screen):
 
         for row in range(0,4):
 
@@ -46,14 +46,14 @@ class UI():
                 pygame.draw.rect(screen,(255,255,255),(x,y,self.block_size,self.block_size))
 
                 if number != "0":
-                    screen.blit(font.render(number, True, (0,0,0)), (x + self.block_size/4, y + self.block_size/4))
+                    screen.blit(self.pointsFont.render(number, True, (0,0,0)), (x + self.block_size/4, y + self.block_size/4))
 
 
-    def drawUI(self, screen, matrix, font):
+    def drawUI(self, screen, matrix):
 
         #screen.fill(self.black)
 
-        self.draw_matrix(matrix, screen, font)
+        self.draw_matrix(matrix, screen)
 
         #pygame.draw.rect(screen,(255,255,255),(0,0,200,200))
 

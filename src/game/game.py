@@ -58,18 +58,47 @@ class Game():
 
                 if event.key == pygame.K_RIGHT:
 
-                        game.logic.move_right(game.logic.matrix1)
+                    matrix_before = game.logic.matrix1.copy()
+
+                    game.logic.move_right(game.logic.matrix1)
+
+                    if np.array_equal(matrix_before, game.logic.matrix1):
+
+                        print("samat")
+                        
+                        print(matrix_before)
+                        print(game.logic.matrix1)
+                    else:
                         game.logic.place_n()
 
                 if event.key == pygame.K_UP:
 
-                    game.logic.move_up(game.logic.matrix1)
-                    game.logic.place_n()
+                    matrix_before = game.logic.matrix1.copy()
 
+                    game.logic.move_up(game.logic.matrix1)
+
+                    if np.array_equal(matrix_before, game.logic.matrix1):
+
+                        print("samat")
+                        
+                        print(matrix_before)
+                        print(game.logic.matrix1)
+                    else:
+                        game.logic.place_n()
                 if event.key == pygame.K_DOWN:
 
+                    matrix_before = game.logic.matrix1.copy()
+
                     game.logic.move_down(game.logic.matrix1)
-                    game.logic.place_n()
+
+                    if np.array_equal(matrix_before, game.logic.matrix1):
+
+                        print("samat")
+                        
+                        print(matrix_before)
+                        print(game.logic.matrix1)
+                    else:
+                        game.logic.place_n()
 
             if event.type == pygame.QUIT:
 
@@ -79,7 +108,7 @@ class Game():
 
             matrix = self.logic.matrix1
 
-            self.UI.drawUI(self.screen, matrix, self.pointsFont)
+            self.UI.drawUI(self.screen, matrix)
 
             #if game.gameState == 1:
 
