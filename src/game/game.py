@@ -107,8 +107,9 @@ class Game():
                     quit()
 
             matrix = self.logic.matrix1
+            score = self.logic.score
 
-            self.UI.drawUI(self.screen, matrix)
+            self.UI.drawUI(self.screen, matrix, score)
 
             #if game.gameState == 1:
 
@@ -133,34 +134,4 @@ while True:
 
     game.run()
 
-    #if game.gameState == 0:
-
-        #i = input("Paina ENTER aloittaaksesi pelin")
-
-        #if i == "":
-
-           #game.gameState = 1
-
-           # game.create_start_pos()
-
-           # print(game.matrix)
-
-    #if game.gameState == 1:
-
-        #l = input("Tee siirtosi: ")
-
-        #if l == "a":
-
-            #game.logic.move_left(game.matrix)
-
-       # if l == "d":
-
-           # game.move_right(game.matrix)
-
-        #if l == "w":
-
-            #game.move_up(game.matrix)
-
-        #if l == "s":
-
-            #game.move_down(game.matrix)
+    

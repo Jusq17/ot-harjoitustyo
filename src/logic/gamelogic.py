@@ -4,6 +4,9 @@
 import numpy as np
 import random
 
+import os
+print (os.getcwd())
+
 class Logic:
 
     #luodaan pelimatriisi("lauta")
@@ -13,8 +16,14 @@ class Logic:
         self.boardSize = 4
         self.matrix1 = np.zeros((self.boardSize,self.boardSize),dtype="int")
 
+        f = open("src/logic/highscore.txt", "r")
+        content = f.readlines()
+
+        f.close()
+
 
         self.score = 0
+        self.highscore = int(content[0])
 
         # gameState = 0: Peli ei ole alkanut, gameState = 1: Peli on käynnissä 
         # gameState = 2: Peli loppu epäonnistuneesti, gameState = 3: Peli loppu ja 2048 saavutettu.
@@ -28,6 +37,10 @@ class Logic:
     def matrix(self):
 
         return self.matrix1
+
+    def Score(self):
+
+        return str(self.score)
 
     def place_n(self):
 
@@ -109,6 +122,12 @@ class Logic:
                     row[l] *= 2
                     self.score += row[l]
                     row[l+1] = 0
+
+                if self.score > self.highscore:
+
+                    f = open("src/logic/highscore.txt", "w")
+                    f.write(str(self.score))
+                    f.close()
 
         for l in range(self.boardSize):
 
