@@ -1,6 +1,6 @@
 ## 11.12.2022
 
-Score updatettu ja highscore lisätty
+Score updatettu ja highscore lisätty. Highscore tallennetaan highscore.txt tiedostoon.
 
 ## 12.12.2022
 
