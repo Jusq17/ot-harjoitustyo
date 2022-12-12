@@ -21,18 +21,14 @@ class tests(unittest.TestCase):
 
         result_matrix[0,0] = 4
 
-        self.logic.matrix = np.zeros((4,4),dtype="int")
+        self.logic.matrix1 = np.zeros((4,4),dtype="int")
 
-        self.logic.matrix[0,0]=2
-        self.logic.matrix[0,1]=2
+        self.logic.matrix1[0,0]=2
+        self.logic.matrix1[0,1]=2
 
-        print(result_matrix)
+        self.logic.move_left(self.logic.matrix1)
 
-        print(self.logic.matrix)
-
-        self.logic.move_left(self.logic.matrix)
-
-        self.assertEqual(self.logic.matrix.all(), result_matrix.all())
+        self.assertEqual(self.logic.matrix1.all(), result_matrix.all())
         self.assertEqual(self.logic.score, 4)
 
     def test_move_right(self):
@@ -41,18 +37,14 @@ class tests(unittest.TestCase):
 
         result_matrix[0,3] = 4
 
-        self.logic.matrix = np.zeros((4,4),dtype="int")
+        self.logic.matrix1 = np.zeros((4,4),dtype="int")
 
-        self.logic.matrix[0,0]=2
-        self.logic.matrix[0,1]=2
+        self.logic.matrix1[0,0]=2
+        self.logic.matrix1[0,1]=2
 
-        print(result_matrix)
+        self.logic.move_right(self.logic.matrix1)
 
-        print(self.logic.matrix)
-
-        self.logic.move_right(self.logic.matrix)
-
-        self.assertEqual(self.logic.matrix.all(), result_matrix.all())
+        self.assertEqual(self.logic.matrix1.all(), result_matrix.all())
         self.assertEqual(self.logic.score, 4)
 
     def test_move_up(self):
@@ -61,18 +53,14 @@ class tests(unittest.TestCase):
 
         result_matrix[0,0] = 4
 
-        self.logic.matrix = np.zeros((4,4),dtype="int")
+        self.logic.matrix1 = np.zeros((4,4),dtype="int")
 
-        self.logic.matrix[0,0]=2
-        self.logic.matrix[1,0]=2
+        self.logic.matrix1[0,0]=2
+        self.logic.matrix1[1,0]=2
 
-        print(result_matrix)
+        self.logic.move_up(self.logic.matrix1)
 
-        print(self.logic.matrix)
-
-        self.logic.move_up(self.logic.matrix)
-
-        self.assertEqual(self.logic.matrix.all(), result_matrix.all())
+        self.assertEqual(self.logic.matrix1.all(), result_matrix.all())
         self.assertEqual(self.logic.score, 4)
 
     def test_move_down(self):
@@ -81,20 +69,30 @@ class tests(unittest.TestCase):
 
         result_matrix[3,0] = 4
 
-        self.logic.matrix = np.zeros((4,4),dtype="int")
+        self.logic.matrix1 = np.zeros((4,4),dtype="int")
 
-        self.logic.matrix[0,0]=2
-        self.logic.matrix[1,0]=2
+        self.logic.matrix1[0,0]=2
+        self.logic.matrix1[1,0]=2
 
-        print(result_matrix)
+        self.logic.move_down(self.logic.matrix1)
 
-        print(self.logic.matrix)
-
-        self.logic.move_down(self.logic.matrix)
-
-        self.assertEqual(self.logic.matrix.all(), result_matrix.all())
+        self.assertEqual(self.logic.matrix1.all(), result_matrix.all())
         self.assertEqual(self.logic.score, 4)
 
-#if __name__ == "__main__":
+    def test_game_over(self):
 
-    #unittest.main()
+        result_matrix = np.zeros((4,4),dtype="int")
+
+        self.logic.matrix1 = [[2,4,2,4],
+                              [4,2,4,2],
+                              [2,4,2,4],
+                              [4,2,4,2]]
+
+        self.logic.move_left(self.logic.matrix1)
+
+        self.assertEqual(self.logic.matrix1.all(), result_matrix.all())
+        self.assertEqual(self.logic.score, 0)
+
+if __name__ == "__main__":
+
+    unittest.main()
