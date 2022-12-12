@@ -9,7 +9,7 @@
   Game --> UI
   
   class Game{
-  
+     run()
   }
   
   class Logic{
