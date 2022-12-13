@@ -50,6 +50,13 @@ class Logic:
 
     def place_n(self):
 
+        """
+            Metodi, joka laittaa numeron 2 tyhjään tilaan matriisissa.
+
+            Args: ei mitään
+
+        """
+
         empty_spaces = []
 
         n1 = random.randint(0,3)
@@ -70,6 +77,10 @@ class Logic:
         self.matrix1[new_place] = 2
 
     def create_start_pos(self):
+
+        self.score = 0
+
+        self.matrix1 = np.zeros((self.boardSize,self.boardSize),dtype="int")
 
         #kuinka monta numeroa pelin alussa on
         start_numbers_n = 2
@@ -159,22 +170,13 @@ class Logic:
             Move left funktio siirtää 2048 numerot vasemmalle puolelle
             Jos samat numerot ovat vierekkäin ne yhtyvät yhdeksi numeroksi, joka on x2 alkuperäisistä
             Riville 2|2|0|0 <-- käy siis 4|0|0|0
-            Voimme käyttä tätä funktiota muodostamaan kaikki muut siirtofunktiot.
+            Voimme käyttää tätä funktiota muodostamaan kaikki muut siirtofunktiot.
 
             Args:
 
             matrix1: Matriisi, jota siirretään 
 
         """
-
-         # Katsotaan onko vielä mahdollista tehdä liike
-
-        if self.is_game_over() == True:
-
-            # Jos peli on loppu, tyhjennetään matriisi ja nollataan score
-
-            #self.matrix1 = np.zeros((self.boardSize,self.boardSize),dtype="int")
-            self.score = 0
 
         for i in range(self.boardSize):
 

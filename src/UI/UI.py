@@ -47,7 +47,7 @@ class UI():
             for col in range(0,4):
 
                 x = self.block_size * row + 8 * row + 90
-                y = self.block_size * col + 8 * col + 125
+                y = self.block_size * col + 8 * col + 80
 
                 #print(matrix)
 
@@ -116,7 +116,9 @@ class UI():
 
         self.draw_matrix(matrix, screen)
 
-        screen.blit(self.three_digit.render("Score: " + str(score), True, (255,255,255)),(50, 50))
+        screen.blit(self.three_digit.render("Score: " + str(score), True, (255,255,255)),(20, 9))
+
+        screen.blit(self.three_digit.render("Press R to retry", True, (255,255,255)),(180, 720))
 
     def draw_menu_UI(self, screen):
 

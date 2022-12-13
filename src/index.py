@@ -1,15 +1,15 @@
 
-from game import game
+import Game.game as game
 
 def main():
 
-    game = game.Game()
+    main_game = game.Game()
 
-    game.logic.create_start_pos()
+    main_game.logic.create_start_pos()
 
     while True:
 
-        game.run()
+        main_game.run()
 
 if __name__ == "__main__":
 
