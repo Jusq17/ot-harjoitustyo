@@ -13,32 +13,32 @@ Tämä sovellus on siis työpyötä versio tutusta 2048 pelistä. Se on toteutet
 
 1. Asenna riippuvuudet komennolla:
 
-´´´bash
+```bash
 poetry install
-´´´
+```
 
 2. Muuta ei tarvitse tehdä. Ohjelman voi käynnistää komennolla:
 
-´´´bash
+```bash
 poetry run invoke start
-´´´
+```
 
 ## Kaikki komentoriviltä suoritettavat komennot
 
 Ohjelman käynnistys:
 
-´´´bash
+```bash
 poetry run invoke start
-´´´
+```
 Testien suorittaminen:
 
-´´´bash
+```bash
 poetry run invoke test
-´´´
+```
 Testi coverage reportin luominen:
 
-´´´bash
+```bash
 poetry run invoke coverage
-´´´
+```
 
 
