@@ -27,7 +27,7 @@ class Logic:
         self.boardSize = 4
         self.matrix1 = np.zeros((self.boardSize,self.boardSize),dtype="int")
 
-        f = open("src/logic/highscore.txt", "r")
+        f = open("scores/highscore.txt", "r")
         content = f.readlines()
 
         f.close()
@@ -51,7 +51,8 @@ class Logic:
     def place_n(self):
 
         """
-            Metodi, joka laittaa numeron 2 tyhjään tilaan matriisissa.
+            Metodi, joka laittaa numeron 2 tyhjään tilaan matriisissa. 
+            Käytetään matriisin alustuksessa ja jokaisen siirron jälkeen.
 
             Args: ei mitään
 
@@ -156,7 +157,7 @@ class Logic:
 
                 if self.score > self.highscore:
 
-                    f = open("src/logic/highscore.txt", "w")
+                    f = open("scores/highscore.txt", "w")
                     f.write(str(self.score))
                     f.close()
 
