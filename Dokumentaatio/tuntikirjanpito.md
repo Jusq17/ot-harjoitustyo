@@ -7,3 +7,4 @@
 | viikko4 | 5h | UI ja pygame events (game.py) | 
 | viikko5 | 1h | invoke ja poetry |
 | viikko6 | 9h | score käyttöön, UI melkein valmis ja Dokumentaatio |
+| yht   | 20.5h   | | 
