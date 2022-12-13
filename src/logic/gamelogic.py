@@ -100,40 +100,6 @@ class Logic:
 
             self.matrix1[n1,n2] = 2
 
-    def is_game_over(self):
-
-        full = False
-
-        if self.matrix1.all() != 0:
-
-            full = True
-
-        transposed_matrix = np.transpose(self.matrix1)
-
-        if full == True:
-
-            for i in range(0,3):
-
-                for j in range(0,3):
-
-                    if self.matrix1[i][j] == self.matrix1[i][j+1]:
-
-                        return False
-
-                    if transposed_matrix[i][j] == transposed_matrix[i][j+1]:
-
-                        return False
-
-
-            print("Score nollataan")
-            print(self.matrix1)
-
-            return True
-
-        else:
-       
-            return False
-
     def move_n_left(self, row):
 
         """

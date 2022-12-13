@@ -2,3 +2,5 @@
 __pycache__
 .coverage
 scores/highscore.txt
+htmlcov/
+tasks.py
