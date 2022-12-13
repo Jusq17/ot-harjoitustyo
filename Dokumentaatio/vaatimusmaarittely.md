@@ -11,5 +11,5 @@ Sovellus on yksin pelattava peli, joten ei tarvita erikseen käyttäjäluokkia
 ## Sovelluksen vaatimukset
 
 - Toimii kuten normaali 2048 peli puhelimella tai selaimessa
-- Graafinen käyttöliittymä
+- Graafinen käyttöliittymä / tehty
 - Tallentaa highscoren / tehty
