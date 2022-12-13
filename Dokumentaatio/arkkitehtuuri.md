@@ -9,11 +9,13 @@
   Game --> UI
   
   class Game{
-  
+     run()
   }
   
   class Logic{
-    game matrix
+    game_matrix: matrix1
+    
+    is_game_over()
     move_left()
     move_right()
     move_down()
@@ -23,7 +25,8 @@
   class UI{
     block_size
     draw_matrix()
-    draw_UI()
+    draw_main_UI()
+    draw_menu_UI()
   }
 
 ```
