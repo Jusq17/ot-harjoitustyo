@@ -95,6 +95,7 @@ class Game():
                             print(self.logic.matrix1)
                         else:
                             self.logic.place_n()
+
                     if event.key == pygame.K_DOWN:
 
                         matrix_before = self.logic.matrix1.copy()
@@ -113,6 +114,7 @@ class Game():
                     if event.key == pygame.K_r:
 
                         self.logic.create_start_pos()
+                        self.logic.score = 0
 
                     matrix = self.logic.matrix1
                     score = self.logic.score

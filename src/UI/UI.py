@@ -35,27 +35,18 @@ class UI():
         self.one_digit = pygame.font.Font('freesansbold.ttf', 80)
         self.two_digit = pygame.font.Font('freesansbold.ttf', 67)
         self.three_digit = pygame.font.Font('freesansbold.ttf', 59)
-
-        #self.screen = pygame.display.set_mode(self.size)
+        self.score_font = pygame.font.Font('freesansbold.ttf', 34)
 
     def draw_matrix(self, matrix, screen):
 
         for row in range(0,4):
-
-            #print(row)
 
             for col in range(0,4):
 
                 x = self.block_size * row + 8 * row + 90
                 y = self.block_size * col + 8 * col + 80
 
-                #print(matrix)
-
-                #m = matrix()
-
                 number = str(matrix[col][row])
-
-                #print(number)
 
                 # Värit laatikoihin
 
@@ -112,12 +103,18 @@ class UI():
 
     def draw_main_UI(self, screen, matrix, score):
 
+        f = open("scores/highscore.txt", "r")
+        content = f.readlines()
+        f.close()
+
+        highscore = str(content[0])
+
         screen.fill(self.black)
 
         self.draw_matrix(matrix, screen)
 
-        screen.blit(self.three_digit.render("Score: " + str(score), True, (255,255,255)),(20, 9))
-
+        screen.blit(self.score_font.render("Score: " + str(score), True, (255,255,255)),(50, 20))
+        screen.blit(self.score_font.render("Highscore: " + highscore, True, (255,255,255)),(400, 20))
         screen.blit(self.three_digit.render("Press R to retry", True, (255,255,255)),(180, 720))
 
     def draw_menu_UI(self, screen):
