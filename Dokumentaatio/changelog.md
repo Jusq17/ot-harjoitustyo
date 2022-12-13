@@ -1,8 +1,11 @@
-## 11.12.2022
+# Changelog
 
-Score updatettu ja highscore lisätty. Highscore tallennetaan highscore.txt tiedostoon.
+## Viikko 5
 
-## 12.12.2022
+- UI toiminnallinen ja värit otettu käyttöön.
+- Score ja highscore lisätty. Highscore tallennetaan highscore.txt tiedostoon.
 
-Lisätty värejä UI:n ja tehty alkuruutu.
-Tehty is_game_over() funktio, joka tarkastaa onko peli loppu. Huom. Ei toimi vielä halutusti, nollaa scoren kun ei pitäisi.
+## Viikko 6
+
+- Lisätty värejä UI:n ja tehty alkuruutu.
+- Pelin voi aloittaa uudelleen milloin tahansa. Toimii myös uudelleenaloituksena siirtojen loputtua.
