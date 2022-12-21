@@ -1,47 +1,45 @@
-#Kaikki itse pelin logikkan liittyvät funktiot ovat tässä tiedostossa
-#Esim. 2048 "laudan" "siirto" vasempaan ja oikeaan suuntaan.
+# Kaikki itse pelin logikkan liittyvät funktiot ovat tässä tiedostossa
+# Esim. 2048 "laudan" "siirto" vasempaan ja oikeaan suuntaan.
 
 import numpy as np
 import random
 
-import os
-print (os.getcwd())
-
 class Logic:
 
     """
-        Luokka, joka käsittelee kaiken pelimatriisiin liittyvän. Sisältää metodit, jotka muokkaavat ja tarkastavat sitä.
+        Luokka, joka käsittelee kaiken pelimatriisiin liittyvän.
+        Sisältää metodit, jotka muokkaavat ja tarkastavat sitä.
 
         Attributes:
 
             boardSize: Pelimatriisin/laudan koko
             matrix1: Pelimatriisi
             score: Pelin nykyinen score
-            highscore: Paras score, jonka pelaaja on joskus saanut. Tallenetaan highscore.txt tiedostoon.
+            highscore: Paras score, jonka pelaaja on joskus saanut.
+
     """
 
     def __init__(self):
 
-        #luodaan pelimatriisi("lauta")
-        
-        self.boardSize = 4
-        self.matrix1 = np.zeros((self.boardSize,self.boardSize),dtype="int")
+        # luodaan pelimatriisi("lauta")
 
-        f = open("scores/highscore.txt", "r")
-        content = f.readlines()
-        f.close()
+        self.board_size = 4
+        self.matrix1 = np.zeros((self.board_size, self.board_size), dtype="int")
+
+        file = open("scores/highscore.txt", "r")
+        content = file.readlines()
+        file.close()
 
         self.score = 0
         self.highscore = int(content[0])
 
     def __str__(self):
 
-        return str(self.matrix)
+        return str(self.matrix1)
 
     def place_n(self):
-
         """
-            Metodi, joka laittaa numeron 2 tyhjään tilaan matriisissa. 
+            Metodi, joka laittaa numeron 2 tyhjään tilaan matriisissa.
             Käytetään matriisin alustuksessa ja jokaisen siirron jälkeen.
 
             Args: ei mitään
@@ -50,16 +48,13 @@ class Logic:
 
         empty_spaces = []
 
-        n1 = random.randint(0,3)
-        n2 = random.randint(0,3)
+        for i in range(0, 4):
 
-        for i in range(0,4):
+            for j in range(0, 4):
 
-            for j in range(0,4):
+                if self.matrix1[i, j] == 0:
 
-                if self.matrix1[i,j] == 0:
-
-                    empty_spaces.append((i,j))
+                    empty_spaces.append((i, j))
 
         new_place = random.choice(empty_spaces)
 
@@ -86,19 +81,19 @@ class Logic:
 
         self.score = 0
 
-        self.matrix1 = np.zeros((self.boardSize,self.boardSize),dtype="int")
+        self.matrix1 = np.zeros((self.board_size, self.board_size), dtype="int")
 
-        #kuinka monta numeroa pelin alussa on
+        # kuinka monta numeroa pelin alussa on
         start_numbers_n = 2
 
-        #luodaan indeksit joihin numerot laitetaan ja asetetaan numerot sinne
+        # luodaan indeksit joihin numerot laitetaan ja asetetaan numerot sinne
 
         for i in range(start_numbers_n):
 
-            n1 = random.randint(0,3)
-            n2 = random.randint(0,3)
+            n_1 = random.randint(0, 3)
+            n_2 = random.randint(0, 3)
 
-            self.matrix1[n1,n2] = 2
+            self.matrix1[n_1, n_2] = 2
 
     def move_n_left(self, row):
 
@@ -111,11 +106,11 @@ class Logic:
 
         """
 
-        for l in range(self.boardSize-1):
+        for number in range(self.board_size-1):
 
-            if row[l] == 0 and row[l+1] != 0:
+            if row[number] == 0 and row[number+1] != 0:
 
-                row[l+1], row[l] = row[l], row[l+1]
+                row[number+1], row[number] = row[number], row[number+1]
 
         return row
 
@@ -130,13 +125,13 @@ class Logic:
 
         """
 
-        for l in range(self.boardSize):
+        for l in range(self.board_size):
 
             row = self.move_n_left(row)
 
-        for l in range(self.boardSize):     
+        for l in range(self.board_size):
 
-            if(l<3):
+            if l < 3:
 
                 if row[l] == row[l+1]:
 
@@ -146,35 +141,34 @@ class Logic:
 
                 if self.score > self.highscore:
 
-                    f = open("scores/highscore.txt", "w")
-                    f.write(str(self.score))
-                    f.close()
+                    file = open("scores/highscore.txt", "w")
+                    file.write(str(self.score))
+                    file.close()
 
-        for l in range(self.boardSize):
+        for l in range(self.board_size):
 
             row = self.move_n_left(row)
 
     def move_left(self, matrix1):
 
-        """   
+        """
             Move left funktio siirtää 2048 numerot vasemmalle puolelle
-            Jos samat numerot ovat vierekkäin ne yhtyvät yhdeksi numeroksi, joka on x2 alkuperäisistä
+            Jos samat numerot ovat vierekkäin ne yhtyvät yhdeksi numeroksi
             Riville 2|2|0|0 <-- käy siis 4|0|0|0
             Voimme käyttää tätä funktiota muodostamaan kaikki muut siirtofunktiot.
 
             Args:
 
-            matrix1: Matriisi, jota siirretään 
+            matrix1: Matriisi, jota siirretään
 
         """
 
-        for i in range(self.boardSize):
+        for i in range(self.board_size):
 
             row = matrix1[i]
 
             self.move_row_left(row)
 
-        
         print("")
 
         print(self.matrix1)

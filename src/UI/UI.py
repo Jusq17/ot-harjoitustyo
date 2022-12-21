@@ -2,34 +2,35 @@
 import pygame as pygame
 from logic import gamelogic
 
+
 class UI():
 
     def __init__(self):
 
         pygame.init()
 
-        #self.clock = pygame.time.Clock()
+        # self.clock = pygame.time.Clock()
 
-        #self.matrix = gamelogic.matrix
+        # self.matrix = gamelogic.matrix
 
-        #self.logic = gamelogic.Logic()
+        # self.logic = gamelogic.Logic()
 
         self.size = self.width, self.height = 800, 800
         self.black = (0, 0, 0)
 
-        self.gainsboro = (220,220,220)
-        self.silver = (192,192,192)
-        self.gray = (128,128,128)
-        self.orange = (244,164,96)
-        self.darkorange = (255,150,0)
-        self.orangered = (255,90,0)
-        self.red = (255,50,0)
-        self.yellow = (255,255,0)
-        self.yellow2 = (255,240,0)
+        self.gainsboro = (220, 220, 220)
+        self.silver = (192, 192, 192)
+        self.gray = (128, 128, 128)
+        self.orange = (244, 164, 96)
+        self.darkorange = (255, 150, 0)
+        self.orangered = (255, 90, 0)
+        self.red = (255, 50, 0)
+        self.yellow = (255, 255, 0)
+        self.yellow2 = (255, 240, 0)
 
         self.rows = 4
         self.cols = 4
-        
+
         self.block_size = 150
 
         self.one_digit = pygame.font.Font('freesansbold.ttf', 80)
@@ -39,9 +40,9 @@ class UI():
 
     def draw_matrix(self, matrix, screen):
 
-        for row in range(0,4):
+        for row in range(0, 4):
 
-            for col in range(0,4):
+            for col in range(0, 4):
 
                 x = self.block_size * row + 8 * row + 90
                 y = self.block_size * col + 8 * col + 80
@@ -52,54 +53,65 @@ class UI():
 
                 if int(number) == 2:
 
-                    pygame.draw.rect(screen, self.gainsboro, (x,y,self.block_size,self.block_size))
+                    pygame.draw.rect(screen, self.gainsboro,
+                                     (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 4:
 
-                    pygame.draw.rect(screen, self.silver, (x,y,self.block_size,self.block_size))
+                    pygame.draw.rect(screen, self.silver,
+                                     (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 8:
 
-                    pygame.draw.rect(screen, self.orange, (x,y,self.block_size,self.block_size))
+                    pygame.draw.rect(screen, self.orange,
+                                     (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 16:
 
-                    pygame.draw.rect(screen, self.darkorange, (x,y,self.block_size,self.block_size))
+                    pygame.draw.rect(screen, self.darkorange,
+                                     (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 32:
 
-                    pygame.draw.rect(screen, self.orangered, (x,y,self.block_size,self.block_size))
+                    pygame.draw.rect(screen, self.orangered,
+                                     (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 64:
 
-                    pygame.draw.rect(screen, self.red, (x,y,self.block_size,self.block_size))
+                    pygame.draw.rect(screen, self.red,
+                                     (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 128:
 
-                    pygame.draw.rect(screen, self.yellow, (x,y,self.block_size,self.block_size))
+                    pygame.draw.rect(screen, self.yellow,
+                                     (x, y, self.block_size, self.block_size))
 
                 elif int(number) > 128:
 
-                    pygame.draw.rect(screen, self.yellow2, (x,y,self.block_size,self.block_size))
+                    pygame.draw.rect(screen, self.yellow2,
+                                     (x, y, self.block_size, self.block_size))
 
                 else:
 
-                    pygame.draw.rect(screen, self.gray, (x,y,self.block_size,self.block_size))
+                    pygame.draw.rect(screen, self.gray,
+                                     (x, y, self.block_size, self.block_size))
 
                 if number != "0":
 
                     if int(number) < 10:
 
-                        screen.blit(self.one_digit.render(number, True, (0,0,0)), (x + self.block_size/4, y + self.block_size/4))
+                        screen.blit(self.one_digit.render(
+                            number, True, (0, 0, 0)), (x + self.block_size/4, y + self.block_size/4))
 
                     elif 10 < int(number) < 100:
 
-                        screen.blit(self.two_digit.render(number, True, (0,0,0)), (x + self.block_size/4, y + self.block_size/4))
+                        screen.blit(self.two_digit.render(
+                            number, True, (0, 0, 0)), (x + self.block_size/4, y + self.block_size/4))
 
                     else:
 
-                        screen.blit(self.three_digit.render(number, True, (0,0,0)), (x + self.block_size/7, y + self.block_size/4))
-
+                        screen.blit(self.three_digit.render(
+                            number, True, (0, 0, 0)), (x + self.block_size/7, y + self.block_size/4))
 
     def draw_main_UI(self, screen, matrix, score):
 
@@ -113,21 +125,26 @@ class UI():
 
         self.draw_matrix(matrix, screen)
 
-        screen.blit(self.score_font.render("Score: " + str(score), True, (255,255,255)),(50, 20))
-        screen.blit(self.score_font.render("Highscore: " + highscore, True, (255,255,255)),(400, 20))
-        screen.blit(self.three_digit.render("Press R to retry", True, (255,255,255)),(180, 720))
+        screen.blit(self.score_font.render(
+            "Score: " + str(score), True, (255, 255, 255)), (50, 20))
+        screen.blit(self.score_font.render("Highscore: " +
+                    highscore, True, (255, 255, 255)), (400, 20))
+        screen.blit(self.three_digit.render(
+            "Press R to retry", True, (255, 255, 255)), (180, 720))
 
     def draw_menu_UI(self, screen):
 
         screen.fill(self.black)
 
-        screen.blit(self.three_digit.render("Press Enter to start!", True, (255,255,255)),(100, 300))
+        screen.blit(self.one_digit.render(
+            "2048", True, (255, 255, 255)), (300, 80))
+        screen.blit(self.three_digit.render(
+            "Press Enter to start!", True, (255, 255, 255)), (100, 300))
 
-#ui = UI()
+# ui = UI()
 
-#ui.drawUI()
+# ui.drawUI()
 
-#while True:
+# while True:
 
-    #ui.drawUI()
-
+    # ui.drawUI()
