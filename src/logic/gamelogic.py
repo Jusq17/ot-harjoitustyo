@@ -38,11 +38,12 @@ class Logic:
         return str(self.matrix1)
 
     def place_n(self):
+
         """
             Metodi, joka laittaa numeron 2 tyhjään tilaan matriisissa.
             Käytetään matriisin alustuksessa ja jokaisen siirron jälkeen.
 
-            Args: ei mitään
+            Args: none
 
         """
 
@@ -80,7 +81,6 @@ class Logic:
             f.close()
 
         self.score = 0
-
         self.matrix1 = np.zeros((self.board_size, self.board_size), dtype="int")
 
         # kuinka monta numeroa pelin alussa on

@@ -5,13 +5,22 @@ import numpy as np
 from logic import gamelogic
 from UI import UI
 
-# for i in range(10):
-
-# game.move_left()
-
-# print(game)
-
 class Game():
+
+    """
+        Luokka joka hoitaa pygame-eventtien tarkastuksen.
+        Mahdollistaa, että pelaaja voi pelata käyttäen nuolinäppäimiä.
+
+        Attributes:
+
+            game_state: kuvaa pelin tilaa, esim. ollaanko menussa vai pelaamassa.
+            logic: pelimatriisia käsittelevä luokka.
+            ui: Käyttöliittymää ja grafiikkaa käsittelevä luokka.
+            clock: pygame kello, jonka avulla asetetaan framerate.
+            size: pygame ikkunan koko
+            screen: pygame ikkuna, jolle grafiikat piirretään.
+
+    """
 
     def __init__(self):
 
@@ -22,12 +31,19 @@ class Game():
 
         pygame.init()
         self.clock = pygame.time.Clock()
-
         self.size = self.width, self.height = 800, 800
-
         self.screen = pygame.display.set_mode(self.size)
 
     def menu_handler(self, event):
+
+        """
+            Metodi, joka hoitaa pygame-eventtien tarkastamisen, kun pelaaja on start-menussa.
+
+            Args:
+                
+            event: pygame-event, joka tarkastetaan
+
+        """
 
         self.ui.draw_menu_UI(self.screen)
 
@@ -38,6 +54,15 @@ class Game():
                 self.game_state = 1
 
     def game_handler(self, event):
+
+        """
+            Metodi, joka hoitaa pygame-eventtien tarkastamisen, kun pelaaja pelaa peliä.
+
+            Args:
+                
+            event: pygame-event, joka tarkastetaan
+
+        """
 
         if event.type == pygame.KEYDOWN:
 
@@ -109,6 +134,15 @@ class Game():
 
     def event_handler(self):
 
+        """
+            Metodi, joka hoitaa pygame-eventtien tarkastamisen.
+
+            Args:
+                
+            none
+
+        """
+
         event_list = pygame.event.get()
 
         for event in event_list:
@@ -126,8 +160,15 @@ class Game():
 
     def run(self):
 
+        """
+            Funktio, joka päivittää ruudun kellon määräämällä frameratella.
+
+            Args:
+
+            none
+
+        """
+
         self.event_handler()
-
         pygame.display.update()
-
         self.clock.tick(60)
