@@ -10,6 +10,8 @@ Tämä sovellus on siis työpyötä versio tutusta 2048 pelistä. Se on toteutet
 [Vaatimusmäärittely](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/vaatimusmaarittely.md)
 <br/>
 [Tuntikirjanpito](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/tuntikirjanpito.md)
+<br/>
+[changelog](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/changelog.md)
 
 ## Asennus
 
@@ -40,7 +42,11 @@ poetry run invoke test
 Testi coverage reportin luominen:
 
 ```bash
-poetry run invoke coverage
+poetry run invoke coverage-report
 ```
 
+Pylint tarkastuksien suorittaminen:
 
+```bash
+poetry run invoke lint
+```
