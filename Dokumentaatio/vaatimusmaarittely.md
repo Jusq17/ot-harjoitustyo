@@ -14,6 +14,5 @@ Sovellus on yksin pelattava peli, joten ei tarvita erikseen käyttäjäluokkia
   - Siirtää numeroita ja yhdistää ne / tehty
   - lisää scorea muodostuvan numeron verran / tehty
   - pelin voi aloittaa uudestaan / tehty
-  - tallentaa highscoren tiedostoon / tehty
 - Graafinen käyttöliittymä / tehty
 - Tallentaa highscoren / tehty
