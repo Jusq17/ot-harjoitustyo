@@ -20,11 +20,13 @@ poetry run invoke start
 
 Käynnistyksen jälkeen avautuu start-menu näkymä joka näyttää seuraavalta:
 <br/>
+<br/>
 ![](./kuvat/kayttoohje-startmenu.JPG)
 
 Paina Enter-näppäintä siirtyäksesi pelinäkymään.
 <br/>
 Pelinäkymä:
+<br/>
 <br/>
 ![](./kuvat/kayttoohje-game.JPG)
 
