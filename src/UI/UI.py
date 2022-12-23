@@ -1,6 +1,6 @@
 
 import pygame as pygame
-from logic import file_manager
+from file_management import file_manager
 
 
 class UI():
