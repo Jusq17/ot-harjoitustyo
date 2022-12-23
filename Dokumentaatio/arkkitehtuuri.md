@@ -1,15 +1,22 @@
+# Arkkitehtuurikuvaus
 
 ## Sovelluksen rakenne
 
-Sovelluksessa on 4 moduulia: gamelogic, UI, game_main ja file_manager.
+Sovelluksessa on 3 pakkausta/kansiota, jotka hoitavat sovelluksen eri toiminnalisuuksia.
+<br/>
+_logic_ vastaa sovelluslogiikasta, _UI_ käyttöliittymästä, _game_ pelaajan syötteistä ja file_management tiedostojen talletuksesta ja hallinnasta.
 
-### gamelogic
+### Sovelluslogiikka
+
+Sovelluslogiikasta vastaa pääasiassa gamelogic moduuli.
 
 Tämä moduuli hoitaa pelimatriisiin liittyvän toiminnallisuuden. Koko 2048-peli perustuu tähän pelimatriisiin ja sen muokkaukseen.
 
-### UI
+### Käyttöliittymä
 
-Tämä moduuli vastaa käyttöliittymän ja kaiken muun grafiikan piirtämisestä näytölle. Se piirtää pelin 2 näkymää: start-menu ja game-view.
+Käyttöliittymästä vastaa UI moduuli.
+
+Tämä moduuli vastaa käyttöliittymän ja kaiken muun grafiikan piirtämisestä näytölle.
 
 ### game_main
 
