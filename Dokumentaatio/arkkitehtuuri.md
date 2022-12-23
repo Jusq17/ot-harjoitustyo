@@ -9,7 +9,6 @@ _logic_ vastaa sovelluslogiikasta, _UI_ käyttöliittymästä, _game_ syötteist
 ## Sovelluslogiikka
 
 Sovelluslogiikasta vastaa pääasiassa gamelogic moduuli ja sen luokka logic.
-
 Tämä luokka hoitaa pelimatriisiin liittyvän toiminnallisuuden. Koko 2048-peli perustuu tähän pelimatriisiin ja sen muokkaukseen.
 
 Luokan metodit create_start_pos() ja place_n() mahdollistavat uuden pelin aloituksen. 
@@ -41,7 +40,7 @@ Tiedostojen hallinnasta vastaa file_manager moduuli.
 Se on pieni moduuli, joka sisältää tiedostojen hallinta funktioita. Se tekee koodin lukemisesta muissa moduuleissa mielekkäämpää ja mahdollistaa parempaa jatkokehitystä.
 <br/>
 <br/>
-Koska sovellus on vielä aika yksinkertainen, jokainen moduuli sisältää vain yhden luokan. Jatkokehityksessä voi olla hyödyllistä luoda lisää luokkia.
+### Koska sovellus on vielä aika yksinkertainen, jokainen moduuli sisältää vain yhden luokan. Jatkokehityksessä voi olla hyödyllistä luoda lisää luokkia.
 
 ## Luokkakaavio
 
@@ -53,12 +52,16 @@ Koska sovellus on vielä aika yksinkertainen, jokainen moduuli sisältää vain 
   Game --> UI
   
   class Game{
+     menu_handler()
+     game_handler()
+     event_handler()
      run()
   }
   
   class Logic{
     game_matrix: matrix1
     
+    place_n()
     create_start_pos()
     move_left()
     move_right()
