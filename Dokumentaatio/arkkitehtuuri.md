@@ -18,7 +18,9 @@ Metodi place_n() etsii pelimatriisista tyhjän tilan ja asettaa sinne numeron 2.
 Luokan metodit move_n_left(), move_row_left() ja move_left() mahdollistavat pelimatriisin siirrot kaikkiin suuntiin.
 
 Metodi move_n_left() siirtää numeroita vasemmalle, jotta niiden väliin ei jää tyhjiä tiloja.
+<br/>
 Metodi move_row_left() yhdistää vierekkäin olevat numerot toisiinsa, jos numerot ovat yhtä suuret.
+<br/>
 Metodi move_left() yhdistää edellämainitut metodit ja siirtää matriisin, jokaista riviä oikealla tavalla.
 
 Voimme käyttää tätä move_left() metodia muodostamaan kaikki muut siirtofunktiot käyttäen numpy kirjaston funktiota.
