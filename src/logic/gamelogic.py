@@ -1,6 +1,7 @@
 # Kaikki itse pelin logikkan liittyvät funktiot ovat tässä tiedostossa
 # Esim. 2048 "laudan" "siirto" vasempaan ja oikeaan suuntaan.
 
+from logic import file_manager
 import numpy as np
 import random
 
@@ -21,12 +22,14 @@ class Logic:
 
     def __init__(self):
 
+        self.file_manager = file_manager.file_mnger()
+
         # luodaan pelimatriisi("lauta")
 
         self.board_size = 4
         self.matrix1 = np.zeros((self.board_size, self.board_size), dtype="int")
 
-        file = open("scores/highscore.txt", "r")
+        file = open("data/highscore.txt", "r")
         content = file.readlines()
         file.close()
 
@@ -72,14 +75,6 @@ class Logic:
 
         """
 
-        if self.score > self.highscore:
-
-            self.highscore = self.score
-
-            f = open("scores/highscore.txt", "w")
-            f.write(str(self.score))
-            f.close()
-
         self.score = 0
         self.matrix1 = np.zeros((self.board_size, self.board_size), dtype="int")
 
@@ -90,10 +85,7 @@ class Logic:
 
         for i in range(start_numbers_n):
 
-            n_1 = random.randint(0, 3)
-            n_2 = random.randint(0, 3)
-
-            self.matrix1[n_1, n_2] = 2
+            self.place_n()
 
     def move_n_left(self, row):
 
@@ -141,9 +133,7 @@ class Logic:
 
                 if self.score > self.highscore:
 
-                    file = open("scores/highscore.txt", "w")
-                    file.write(str(self.score))
-                    file.close()
+                    self.file_manager.write_hs(self.score)
 
         for l in range(self.board_size):
 
@@ -169,10 +159,7 @@ class Logic:
 
             self.move_row_left(row)
 
-        print("")
-
-        print(self.matrix1)
-        print(self.score)
+        return "left"
 
     def move_right(self, matrix1):
 
@@ -192,6 +179,8 @@ class Logic:
 
         self.matrix1 = np.fliplr(reversed_matrix)
 
+        return "right"
+
     def move_up(self, matrix1):
 
         """
@@ -210,6 +199,8 @@ class Logic:
 
         self.matrix1 = np.transpose(reversed_matrix)
 
+        return "up"
+
     def move_down(self, matrix1):
 
         """
@@ -227,3 +218,5 @@ class Logic:
         self.move_right(reversed_matrix)
 
         self.matrix1 = np.transpose(reversed_matrix)
+        
+        return "down"

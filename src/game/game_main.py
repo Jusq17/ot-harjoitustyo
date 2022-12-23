@@ -53,10 +53,13 @@ class Game():
 
                 self.game_state = 1
 
+        return self.game_state
+
     def game_handler(self, event):
 
         """
             Metodi, joka hoitaa pygame-eventtien tarkastamisen, kun pelaaja pelaa peliä.
+            Palauttaa painetun näppäimen arvoa vastaavan merkkijonon.
 
             Args:
                 
@@ -64,13 +67,15 @@ class Game():
 
         """
 
+        key_pressed = ""
+
         if event.type == pygame.KEYDOWN:
 
             if event.key == pygame.K_LEFT:
 
                 matrix_before = self.logic.matrix1.copy()
 
-                self.logic.move_left(self.logic.matrix1)
+                key_pressed = self.logic.move_left(self.logic.matrix1)
 
                 if np.array_equal(matrix_before, self.logic.matrix1):
                     pass
@@ -81,14 +86,10 @@ class Game():
 
                 matrix_before = self.logic.matrix1.copy()
 
-                self.logic.move_right(self.logic.matrix1)
+                key_pressed = self.logic.move_right(self.logic.matrix1)
 
                 if np.array_equal(matrix_before, self.logic.matrix1):
-
-                    print("samat")
-
-                    print(matrix_before)
-                    print(self.logic.matrix1)
+                    pass
                 else:
                     self.logic.place_n()
 
@@ -96,14 +97,10 @@ class Game():
 
                 matrix_before = self.logic.matrix1.copy()
 
-                self.logic.move_up(self.logic.matrix1)
+                key_pressed = self.logic.move_up(self.logic.matrix1)
 
                 if np.array_equal(matrix_before, self.logic.matrix1):
-
-                    print("samat")
-
-                    print(matrix_before)
-                    print(self.logic.matrix1)
+                    pass
                 else:
                     self.logic.place_n()
 
@@ -111,14 +108,10 @@ class Game():
 
                 matrix_before = self.logic.matrix1.copy()
 
-                self.logic.move_down(self.logic.matrix1)
+                key_pressed = self.logic.move_down(self.logic.matrix1)
 
                 if np.array_equal(matrix_before, self.logic.matrix1):
-
-                    print("samat")
-
-                    print(matrix_before)
-                    print(self.logic.matrix1)
+                    pass
                 else:
                     self.logic.place_n()
 
@@ -127,10 +120,14 @@ class Game():
                 self.logic.create_start_pos()
                 self.logic.score = 0
 
+                key_pressed = "r"
+
             matrix = self.logic.matrix1
             score = self.logic.score
 
             self.ui.draw_main_UI(self.screen, matrix, score)
+
+            return key_pressed
 
     def event_handler(self):
 

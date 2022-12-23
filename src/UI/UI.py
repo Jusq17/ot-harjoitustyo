@@ -1,19 +1,15 @@
 
 import pygame as pygame
-from logic import gamelogic
+from logic import file_manager
 
 
 class UI():
 
     def __init__(self):
 
+        self.file_manager = file_manager.file_mnger()
+
         pygame.init()
-
-        # self.clock = pygame.time.Clock()
-
-        # self.matrix = gamelogic.matrix
-
-        # self.logic = gamelogic.Logic()
 
         self.size = self.width, self.height = 800, 800
         self.black = (0, 0, 0)
@@ -115,14 +111,9 @@ class UI():
 
     def draw_main_UI(self, screen, matrix, score):
 
-        f = open("scores/highscore.txt", "r")
-        content = f.readlines()
-        f.close()
-
-        highscore = str(content[0])
+        highscore = self.file_manager.return_hs()
 
         screen.fill(self.black)
-
         self.draw_matrix(matrix, screen)
 
         screen.blit(self.score_font.render(
@@ -137,9 +128,11 @@ class UI():
         screen.fill(self.black)
 
         screen.blit(self.one_digit.render(
-            "2048", True, (255, 255, 255)), (300, 80))
+            "2048", True, (self.orange)), (300, 80))
         screen.blit(self.three_digit.render(
             "Press Enter to start!", True, (255, 255, 255)), (100, 300))
+        screen.blit(self.score_font.render(
+            "Use the arrow keys to move the numbers!", True, (self.yellow)), (50, 500))
 
 # ui = UI()
 
