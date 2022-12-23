@@ -2,29 +2,31 @@
 
 ## Sovelluksen rakenne
 
-Sovelluksessa on 3 pakkausta/kansiota, jotka hoitavat sovelluksen eri toiminnalisuuksia.
+Sovelluksessa on 4 pakkausta/kansiota, jotka hoitavat sovelluksen eri toiminnalisuuksia.
 <br/>
-_logic_ vastaa sovelluslogiikasta, _UI_ käyttöliittymästä, _game_ pelaajan syötteistä ja file_management tiedostojen talletuksesta ja hallinnasta.
+_logic_ vastaa sovelluslogiikasta, _UI_ käyttöliittymästä, _game_ syötteistä ja pelin pyörittämisestä ja _file_management_ tiedostojen talletuksesta ja hallinnasta.
 
-### Sovelluslogiikka
+## Sovelluslogiikka
 
 Sovelluslogiikasta vastaa pääasiassa gamelogic moduuli.
 
 Tämä moduuli hoitaa pelimatriisiin liittyvän toiminnallisuuden. Koko 2048-peli perustuu tähän pelimatriisiin ja sen muokkaukseen.
 
-### Käyttöliittymä
+## Käyttöliittymä
 
 Käyttöliittymästä vastaa UI moduuli.
 
 Tämä moduuli vastaa käyttöliittymän ja kaiken muun grafiikan piirtämisestä näytölle.
 
-### game_main
+## Syötteet ja pelin pyöritys
 
 Tämä moduuli hoitaa pygame-eventeistä ja mahdollistaa, että pelaaja voi oikeasti pelata peliä syötteiden avulla. Se myös yhdistää kaikki muut moduulit toimivaksi rakenteeksi. Sen run() funktiota kutsutaan, kun index.py käynnistetään.
 
-### file_manager
+## Tiedostojen hallinta
 
-Pieni moduuli, joka sisältää tiedostojen hallinta funktioita. Tekee koodin lukemisesta muissa moduuleissa mielekkäämpää.
+Tiedostojen hallinnasta vastaa file_manager moduuli.
+
+Se on pieni moduuli, joka sisältää tiedostojen hallinta funktioita. Se tekee koodin lukemisesta muissa moduuleissa mielekkäämpää ja mahdollistaa parempaa jatkokehitystä.
 <br/>
 <br/>
 Koska sovellus on vielä aika yksinkertainen, jokainen moduuli sisältää vain yhden luokan. Jatkokehityksessä voi olla hyödyllistä luoda lisää luokkia.
