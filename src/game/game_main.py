@@ -33,6 +33,7 @@ class Game():
         self.clock = pygame.time.Clock()
         self.size = self.width, self.height = 800, 800
         self.screen = pygame.display.set_mode(self.size)
+        pygame.display.set_caption("2048")
 
     def menu_handler(self, event):
 
