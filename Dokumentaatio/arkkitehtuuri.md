@@ -37,7 +37,7 @@ Pelissä on vain kaksi eri näkymää: start-menu ja varsinainen pelinäkymä. K
 </br>
 </br>
 Ne piirretään näytölle UI-luokan draw_menu_UI() ja draw_main_UI() metodien avulla.
-UI-luokka vastaa siis kaikesta käyttöliittymään liittyvästä. Käyttöliittymä on eristetty sovelluslogiikasta kokonaan. UI-luokka tarvitsee kuitenkin pelimatriisin tiedot, jotta se voidaan piirtää oikein näytölle. Tämän tiedon UI-luokka saa, kun Game-luokka kutsuu sen metodia draw_main_UI() ja antaa parametriksi pelimatriisin.
+UI-luokka vastaa siis kaikesta käyttöliittymään liittyvästä. Käyttöliittymä on eristetty sovelluslogiikasta kokonaan. UI-luokka tarvitsee kuitenkin pelimatriisin tiedot, jotta se voidaan piirtää oikein näytölle. Tämän tiedon UI-luokka saa, kun Game-luokka kutsuu UI-luokan metodia draw_main_UI() ja antaa parametriksi pelimatriisin.
 
 Käyttöliittymän ja sovelluksen toimintaa voidaan kuvaa sekvenssikaaviolla:
 
@@ -56,18 +56,23 @@ sequenceDiagram
 
 ## Syötteet ja pelin pyöritys
 
-Tämä moduuli hoitaa pygame-eventeistä ja mahdollistaa, että pelaaja voi oikeasti pelata peliä syötteiden avulla. Se myös yhdistää kaikki muut moduulit toimivaksi rakenteeksi. Sen run() funktiota kutsutaan, kun index.py käynnistetään.
+game_main moduuli ja sen luokka Game hoitavat pygame-eventeistä ja mahdollistavat, että pelaaja voi oikeasti pelata peliä syötteiden avulla.
+<br/>
+<br/>
+Luokassa hoidetaan pygame-eventtien tarkistus ja päivitetään pygamen ruutu. Tarkastuksien ja ruudun päivityksen taajuudesta vastaa pygamen pygame.time.Clock(). Sen avulla päivitystaajuudeksi on asetettu 60hz. Pelin grafiikoiden framerate on siis 60fps. Tämä myös varmistaa, että peli pyörii tasaisesti ja vastaa nopeasti pelaajan syötteisiin.
+
+Luokka myös yhdistää kaikki muut moduulit toimivaksi rakenteeksi. Sen run() funktiota kutsutaan, kun sovellus käynnistetään.
 
 ## Tiedostojen hallinta
 
 Tiedostojen hallinnasta vastaa file_manager moduuli.
 
-Se on pieni moduuli, joka sisältää tiedostojen hallinta funktioita. Se tekee koodin lukemisesta muissa moduuleissa mielekkäämpää ja mahdollistaa parempaa jatkokehitystä.
+Se on pieni moduuli ja luokka, joka sisältää tiedostojen hallinta metodeja. Se tekee koodin lukemisesta muissa moduuleissa mielekkäämpää ja mahdollistaa parempaa jatkokehitystä.
 <br/>
 <br/>
 ### Koska sovellus on vielä aika yksinkertainen, jokainen moduuli sisältää vain yhden luokan. Jatkokehityksessä voi olla hyödyllistä luoda lisää luokkia.
 
-## Luokkakaavio
+## Sovelluksen luokkien suhteita kuvaa Luokkakaavio:
 
 ```mermaid
 
@@ -99,6 +104,12 @@ Se on pieni moduuli, joka sisältää tiedostojen hallinta funktioita. Se tekee 
     draw_matrix()
     draw_main_UI()
     draw_menu_UI()
+  }
+  
+  class file_mnger{
+    return_hs()
+    write_hs()
+    return_colors()
   }
 
 ```
