@@ -29,9 +29,28 @@ Pelimatriisi käännetään halutulla tavalla ja sen jälkeen kutsutaan move_lef
 
 ## Käyttöliittymä
 
-Käyttöliittymästä vastaa UI moduuli.
-
+Käyttöliittymästä vastaa UI moduuli ja sen luokka UI.
+</br>
 Tämä moduuli vastaa käyttöliittymän ja kaiken muun grafiikan piirtämisestä näytölle.
+
+Pelissä on vain kaksi eri näkymää: start-menu ja varsinainen pelinäkymä. Koska näkymiä on niin vähän ja start-menu on todella yksinkertainen, molemmat näkymät ovat samassa luokassa.
+</br>
+</br>
+Ne piirretään näytölle UI-luokan draw_menu_UI() ja draw_main_UI() metodien avulla.
+UI-luokka vastaa siis kaikesta käyttöliittymään liittyvästä. Käyttöliittymä on eristetty sovelluslogiikasta kokonaan. UI-luokka tarvitsee kuitenkin pelimatriisin tiedot, jotta se voidaan piirtää oikein näytölle. Tämän tiedon UI-luokka saa, kun Game-luokka kutsuu sen metodia draw_main_UI() ja antaa parametriksi pelimatriisin.
+
+Käyttöliittymän ja sovelluksen toimintaa voidaan kuvaa sekvenssikaaviolla:
+
+```mermaid
+sequenceDiagram
+  actor User
+  participant UI
+  participant Game
+  participant logic
+  User->>Game: Press left arrowkey
+  Game->>logic: move_left(matrix)
+  Game->>UI: draw_main_UI(matrix, screen)
+  
 
 ## Syötteet ja pelin pyöritys
 
@@ -81,11 +100,3 @@ Se on pieni moduuli, joka sisältää tiedostojen hallinta funktioita. Se tekee 
   }
 
 ```
-
-## Käyttöliittymä
-
-Pelissä on vain kaksi eri näkymää: start-menu ja varsinainen pelinäkymä. Koska näkymiä on niin vähän ja start-menu on todella yksinkertainen, molemmat näkymät ovat samassa luokassa.
-</br>
-</br>
-Ne piirretään näytölle UI-luokan draw_menu_UI() ja draw_main_UI() avulla.
-UI-luokka vastaa siis kaikesta käyttöliittymään liittyvästä. Käyttöliittymä on eristetty sovelluslogiikasta kokonaan.
