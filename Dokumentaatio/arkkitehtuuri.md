@@ -50,6 +50,7 @@ sequenceDiagram
   User->>Game: Press left arrowkey
   Game->>logic: move_left(matrix)
   Game->>UI: draw_main_UI(matrix, screen)
+```
   
 
 ## Syötteet ja pelin pyöritys
