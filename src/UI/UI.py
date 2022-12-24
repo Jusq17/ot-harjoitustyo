@@ -2,7 +2,6 @@
 import pygame as pygame
 from file_management import file_manager
 
-
 class UI():
 
     def __init__(self):
@@ -12,17 +11,11 @@ class UI():
         pygame.init()
 
         self.size = self.width, self.height = 800, 800
-        self.black = (0, 0, 0)
 
-        self.gainsboro = (220, 220, 220)
-        self.silver = (192, 192, 192)
+        self.colors = self.file_manager.return_colors()
+
+        self.black = (0, 0, 0)
         self.gray = (128, 128, 128)
-        self.orange = (244, 164, 96)
-        self.darkorange = (255, 150, 0)
-        self.orangered = (255, 90, 0)
-        self.red = (255, 50, 0)
-        self.yellow = (255, 255, 0)
-        self.yellow2 = (255, 240, 0)
 
         self.rows = 4
         self.cols = 4
@@ -49,42 +42,42 @@ class UI():
 
                 if int(number) == 2:
 
-                    pygame.draw.rect(screen, self.gainsboro,
+                    pygame.draw.rect(screen, self.colors[0],
                                      (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 4:
 
-                    pygame.draw.rect(screen, self.silver,
+                    pygame.draw.rect(screen, self.colors[1],
                                      (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 8:
 
-                    pygame.draw.rect(screen, self.orange,
+                    pygame.draw.rect(screen, self.colors[2],
                                      (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 16:
 
-                    pygame.draw.rect(screen, self.darkorange,
+                    pygame.draw.rect(screen, self.colors[3],
                                      (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 32:
 
-                    pygame.draw.rect(screen, self.orangered,
+                    pygame.draw.rect(screen, self.colors[4],
                                      (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 64:
 
-                    pygame.draw.rect(screen, self.red,
+                    pygame.draw.rect(screen, self.colors[5],
                                      (x, y, self.block_size, self.block_size))
 
                 elif int(number) == 128:
 
-                    pygame.draw.rect(screen, self.yellow,
+                    pygame.draw.rect(screen, self.colors[6],
                                      (x, y, self.block_size, self.block_size))
 
                 elif int(number) > 128:
 
-                    pygame.draw.rect(screen, self.yellow2,
+                    pygame.draw.rect(screen, self.colors[7],
                                      (x, y, self.block_size, self.block_size))
 
                 else:
@@ -128,11 +121,11 @@ class UI():
         screen.fill(self.black)
 
         screen.blit(self.one_digit.render(
-            "2048", True, (self.orange)), (300, 80))
+            "2048", True, (self.colors[3])), (300, 80))
         screen.blit(self.three_digit.render(
             "Press Enter to start!", True, (255, 255, 255)), (100, 300))
         screen.blit(self.score_font.render(
-            "Use the arrow keys to move the numbers!", True, (self.yellow)), (50, 500))
+            "Use the arrow keys to move the numbers!", True, (self.colors[6])), (50, 500))
 
 # ui = UI()
 

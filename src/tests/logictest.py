@@ -17,7 +17,7 @@ class tests(unittest.TestCase):
 
         count = 0
 
-        self.logic.create_start_pos()
+        self.logic.create_start_pos(self.game.matrix)
 
         for i in range(0, 3):
 

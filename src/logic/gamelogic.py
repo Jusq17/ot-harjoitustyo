@@ -40,7 +40,7 @@ class Logic:
 
         return str(self.matrix1)
 
-    def place_n(self):
+    def place_n(self, matrix):
 
         """
             Metodi, joka laittaa numeron 2 tyhjään tilaan matriisissa.
@@ -56,17 +56,23 @@ class Logic:
 
             for j in range(0, 4):
 
-                if self.matrix1[i, j] == 0:
+                if matrix[i, j] == 0:
 
                     empty_spaces.append((i, j))
+
+        if len(empty_spaces) == 0:
+
+            return matrix
 
         new_place = random.choice(empty_spaces)
 
         empty_spaces = []
 
-        self.matrix1[new_place] = 2
+        matrix[new_place] = 2
 
-    def create_start_pos(self):
+        return matrix
+
+    def create_start_pos(self, matrix):
 
         """
             Metodi, joka alustaa matriisin. Käytetään myös pelin uudelleenaloituksessa.
@@ -76,7 +82,7 @@ class Logic:
         """
 
         self.score = 0
-        self.matrix1 = np.zeros((self.board_size, self.board_size), dtype="int")
+        matrix = np.zeros((self.board_size, self.board_size), dtype="int")
 
         # kuinka monta numeroa pelin alussa on
         start_numbers_n = 2
@@ -85,7 +91,9 @@ class Logic:
 
         for i in range(start_numbers_n):
 
-            self.place_n()
+            self.place_n(matrix)
+
+        return matrix
 
     def move_n_left(self, row):
 
@@ -139,7 +147,7 @@ class Logic:
 
             row = self.move_n_left(row)
 
-    def move_left(self, matrix1):
+    def move_left(self, matrix):
 
         """
             Move left funktio siirtää 2048 numerot vasemmalle puolelle
@@ -155,13 +163,13 @@ class Logic:
 
         for i in range(self.board_size):
 
-            row = matrix1[i]
+            row = matrix[i]
 
             self.move_row_left(row)
 
-        return "left"
+        return matrix,"left"
 
-    def move_right(self, matrix1):
+    def move_right(self, matrix):
 
         """
             Funktio, joka siirtää numeroita oikealle samalla tavalla kuin move_left() funktio.
@@ -173,15 +181,15 @@ class Logic:
 
         """
 
-        reversed_matrix = np.fliplr(matrix1)
+        reversed_matrix = np.fliplr(matrix)
 
         self.move_left(reversed_matrix)
 
-        self.matrix1 = np.fliplr(reversed_matrix)
+        matrix = np.fliplr(reversed_matrix)
 
-        return "right"
+        return matrix,"right"
 
-    def move_up(self, matrix1):
+    def move_up(self, matrix):
 
         """
             Funktio, joka siirtää numeroita ylös samalla tavalla kuin move_left() funktio.
@@ -193,15 +201,15 @@ class Logic:
 
         """
 
-        reversed_matrix = np.transpose(matrix1)
+        reversed_matrix = np.transpose(matrix)
 
         self.move_left(reversed_matrix)
 
-        self.matrix1 = np.transpose(reversed_matrix)
+        matrix = np.transpose(reversed_matrix)
 
-        return "up"
+        return matrix,"up"
 
-    def move_down(self, matrix1):
+    def move_down(self, matrix):
 
         """
             Funktio, joka siirtää numeroita alas samalla tavalla kuin move_left() funktio.
@@ -213,10 +221,10 @@ class Logic:
 
         """
 
-        reversed_matrix = np.transpose(matrix1)
+        reversed_matrix = np.transpose(matrix)
 
         self.move_right(reversed_matrix)
 
-        self.matrix1 = np.transpose(reversed_matrix)
+        matrix = np.transpose(reversed_matrix)
         
-        return "down"
+        return matrix,"down"

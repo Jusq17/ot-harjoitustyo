@@ -5,7 +5,7 @@ def main():
 
     main_game = game.Game()
 
-    main_game.logic.create_start_pos()
+    main_game.matrix = main_game.logic.create_start_pos(main_game.matrix)
 
     while True:
 

@@ -24,6 +24,9 @@ class Game():
 
     def __init__(self):
 
+        self.matrix = np.zeros((4, 4), dtype="int")
+        self.empty_matrix = np.zeros((4, 4), dtype="int")
+
         self.game_state = 0
 
         self.logic = gamelogic.Logic()
@@ -74,56 +77,56 @@ class Game():
 
             if event.key == pygame.K_LEFT:
 
-                matrix_before = self.logic.matrix1.copy()
+                matrix_before = self.matrix.copy()
 
-                key_pressed = self.logic.move_left(self.logic.matrix1)
+                self.matrix, key_pressed = self.logic.move_left(self.matrix)[0], self.logic.move_left(self.empty_matrix)[1]
 
-                if np.array_equal(matrix_before, self.logic.matrix1):
+                if np.array_equal(matrix_before, self.matrix):
                     pass
                 else:
-                    self.logic.place_n()
+                    self.logic.place_n(self.matrix)
 
             if event.key == pygame.K_RIGHT:
 
-                matrix_before = self.logic.matrix1.copy()
+                matrix_before = self.matrix.copy()
 
-                key_pressed = self.logic.move_right(self.logic.matrix1)
+                self.matrix, key_pressed = self.logic.move_right(self.matrix)[0], self.logic.move_right(self.empty_matrix)[1]
 
-                if np.array_equal(matrix_before, self.logic.matrix1):
+                if np.array_equal(matrix_before, self.matrix):
                     pass
                 else:
-                    self.logic.place_n()
+                    self.logic.place_n(self.matrix)
 
             if event.key == pygame.K_UP:
 
                 matrix_before = self.logic.matrix1.copy()
 
-                key_pressed = self.logic.move_up(self.logic.matrix1)
+                self.matrix, key_pressed = self.logic.move_up(self.matrix)[0], self.logic.move_up(self.empty_matrix)[1]
 
-                if np.array_equal(matrix_before, self.logic.matrix1):
+                if np.array_equal(matrix_before, self.matrix):
                     pass
                 else:
-                    self.logic.place_n()
+                    self.logic.place_n(self.matrix)
 
             if event.key == pygame.K_DOWN:
 
                 matrix_before = self.logic.matrix1.copy()
 
-                key_pressed = self.logic.move_down(self.logic.matrix1)
+                self.matrix, key_pressed = self.logic.move_down(self.matrix)[0], self.logic.move_down(self.empty_matrix)[1]
 
-                if np.array_equal(matrix_before, self.logic.matrix1):
+                if np.array_equal(matrix_before, self.matrix):
                     pass
                 else:
-                    self.logic.place_n()
+                    self.logic.place_n(self.matrix)
 
             if event.key == pygame.K_r:
 
-                self.logic.create_start_pos()
+                self.matrix = self.logic.create_start_pos(self.matrix)
                 self.logic.score = 0
 
                 key_pressed = "r"
 
-            matrix = self.logic.matrix1
+            matrix = self.matrix
             score = self.logic.score
 
             self.ui.draw_main_UI(self.screen, matrix, score)
