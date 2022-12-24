@@ -80,6 +80,8 @@ Se on pieni moduuli ja luokka, joka sisältää tiedostojen hallinta metodeja. S
   
   Game --> Logic
   Game --> UI
+  UI --> file_mnger
+  Logic --> file_mnger
   
   class Game{
      menu_handler()
