@@ -1,13 +1,17 @@
-# Ohjelmistotekniikka 2022 projekti
-## 2048 Python peli
+### Ohjelmistotekniikka 2022 projekti
+# 2048 Python peli
 
 Tämä sovellus on siis työpyötä versio tutusta 2048 pelistä. Se on toteutettu käyttäen Python3 ohjelmointikieltä ja vaatii vähintään version 3.8, jotta sen voi suorittaa. Se käyttää myös pygame ja numpy kirjastoja.
 
 ## Dokumentaatio
 
+[Käyttöohje](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/Kayttoohje.md)
+<br/>
 [Arkkitehtuuri](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/arkkitehtuuri.md)
 <br/>
 [Vaatimusmäärittely](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/vaatimusmaarittely.md)
+<br/>
+[Testausdokumentti](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/testausdokumentti.md)
 <br/>
 [Tuntikirjanpito](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/tuntikirjanpito.md)
 <br/>
