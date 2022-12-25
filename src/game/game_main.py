@@ -56,6 +56,7 @@ class Game():
             if event.key == pygame.K_RETURN:
 
                 self.game_state = 1
+                return self.game_state
 
         return self.game_state
 
@@ -83,11 +84,6 @@ class Game():
                 self.matrix = result[0]
                 key_pressed = result[1]
 
-                if np.array_equal(matrix_before, self.matrix):
-                    pass
-                else:
-                    self.logic.place_n(self.matrix)
-
             if event.key == pygame.K_RIGHT:
 
                 matrix_before = self.matrix.copy()
@@ -96,11 +92,6 @@ class Game():
 
                 self.matrix = result[0]
                 key_pressed = result[1]
-
-                if np.array_equal(matrix_before, self.matrix):
-                    pass
-                else:
-                    self.logic.place_n(self.matrix)
 
             if event.key == pygame.K_UP:
 
@@ -111,11 +102,6 @@ class Game():
                 self.matrix = result[0]
                 key_pressed = result[1]
 
-                if np.array_equal(matrix_before, self.matrix):
-                    pass
-                else:
-                    self.logic.place_n(self.matrix)
-
             if event.key == pygame.K_DOWN:
 
                 matrix_before = self.logic.matrix1.copy()
@@ -124,11 +110,6 @@ class Game():
 
                 self.matrix = result[0]
                 key_pressed = result[1]
-
-                if np.array_equal(matrix_before, self.matrix):
-                    pass
-                else:
-                    self.logic.place_n(self.matrix)
 
             if event.key == pygame.K_r:
 
@@ -161,7 +142,7 @@ class Game():
             if self.game_state == 0:
                 self.menu_handler(event)
 
-            elif self.game_state == 1:
+            if self.game_state == 1:
                 self.game_handler(event)
 
             if event.type == pygame.QUIT:

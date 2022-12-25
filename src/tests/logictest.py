@@ -49,11 +49,11 @@ class tests(unittest.TestCase):
 
         if np.array_equal(self.game.matrix, result_matrix):
 
-            self.assertEqual(True, True)
+            self.assertEqual(self.game.matrix[0, 0], result_matrix[0, 0])
 
         else:
 
-            self.assertEqual(True, False)
+            self.assertEqual(self.game.matrix[0, 0], result_matrix[0, 0])
 
         self.assertEqual(self.logic.score, 4)
 
@@ -72,11 +72,11 @@ class tests(unittest.TestCase):
 
         if np.array_equal(self.game.matrix, result_matrix):
 
-            self.assertEqual(True, True)
+            self.assertEqual(self.game.matrix[0, 3], result_matrix[0, 3])
 
         else:
 
-            self.assertEqual(True, False)
+            self.assertEqual(self.game.matrix[0, 3], result_matrix[0, 3])
 
         self.assertEqual(self.logic.score, 4)
 
@@ -95,11 +95,11 @@ class tests(unittest.TestCase):
 
         if np.array_equal(self.game.matrix, result_matrix):
 
-            self.assertEqual(True, True)
+            self.assertEqual(self.game.matrix[0, 0], result_matrix[0, 0])
 
         else:
 
-            self.assertEqual(True, False)
+            self.assertEqual(self.game.matrix[0, 0], result_matrix[0, 0])
 
         self.assertEqual(self.logic.score, 4)
 
@@ -118,11 +118,11 @@ class tests(unittest.TestCase):
 
         if np.array_equal(self.game.matrix, result_matrix):
 
-            self.assertEqual(True, True)
+            self.assertEqual(self.game.matrix[3, 0], result_matrix[3, 0])
 
         else:
 
-            self.assertEqual(True, False)
+            self.assertEqual(self.game.matrix[3, 0], result_matrix[3, 0])
 
         self.assertEqual(self.logic.score, 4)
 

@@ -158,11 +158,18 @@ class Logic:
 
         """
 
+        matrix_before = matrix.copy()
+
         for i in range(self.board_size):
 
             row = matrix[i]
 
             self.move_row_left(row)
+
+        if np.array_equal(matrix_before, matrix):
+            pass
+        else:
+            self.place_n(matrix)
 
         return matrix, "left"
 
