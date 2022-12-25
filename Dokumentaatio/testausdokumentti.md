@@ -16,6 +16,7 @@ Testaamme, että Game-luokan pygame-eventeistä tapahtuu odotettu tilanne. Luokk
 <br/>
 Testataan, että kun kutsutaan Game-luokan game_handler(event) metodia tietynlaisella pygame-eventillä, niin saadaan haluttu muutos matriisissa.
 <br/>
+<br/>
 Näin voidaan olla varmoja, että molempien luokkien toiminta onnistuu silloinkin, kun ne tekevät yhteistyötä.
 
 ## Haarautumakattavuus ja coverage-report
