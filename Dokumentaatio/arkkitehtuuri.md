@@ -126,7 +126,7 @@ sequenceDiagram
   actor User
   participant UI
   participant Game
-  participant logic
+  participant Logic
   User->>Game: Press left arrowkey
   Game->>logic: move_left(matrix)
   logic->>Game: matrix
@@ -140,7 +140,7 @@ sequenceDiagram
   actor User
   participant UI
   participant Game
-  participant logic
+  participant Logic
   User->>Game: Press "R" key
   Game->>logic: create_start_pos(matrix)
   logic->>Game: matrix
@@ -155,6 +155,7 @@ sequenceDiagram
   actor User
   participant UI
   participant Game
+  participant Logic
   participant file_mngr
   Game->>Logic
   Logic->>file_mngr: write_hs()
