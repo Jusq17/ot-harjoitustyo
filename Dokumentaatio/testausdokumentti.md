@@ -25,7 +25,8 @@ Näin voidaan olla varmoja, että molempien luokkien toiminta onnistuu silloinki
 
 ## Virhetilanteet
 
-Pelaaja ei voi saada virhetilannetta aikaan peliä pelatessa. Ainoat syötteet, jotka pelaaja voi pelissä tehdä ovat: näppäimistön nuolinäppäimet, ENTER-näppäin ja R- näppäin.
+Pelaaja ei voi saada virhetilannetta aikaan peliä pelatessa. Ainoat syötteet, jotka pelaaja voi pelissä tehdä ovat: näppäimistön nuolinäppäimet, ENTER-näppäin ja R-näppäin.
+<br/>
 <br/>
 Testien avulla voidaan olla myös varma, että syötteet tekevät, mitä niiden pitäisi.
 <br/>
