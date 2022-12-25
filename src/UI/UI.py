@@ -10,8 +10,6 @@ class UI():
 
         pygame.init()
 
-        self.size = self.width, self.height = 800, 800
-
         self.colors = self.file_manager.return_colors()
 
         self.black = (0, 0, 0)
@@ -126,11 +124,3 @@ class UI():
             "Press Enter to start!", True, (255, 255, 255)), (100, 300))
         screen.blit(self.score_font.render(
             "Use the arrow keys to move the numbers!", True, (self.colors[6])), (50, 500))
-
-# ui = UI()
-
-# ui.drawUI()
-
-# while True:
-
-    # ui.drawUI()

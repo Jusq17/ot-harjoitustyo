@@ -33,35 +33,27 @@ class tests(unittest.TestCase):
 
         self.assertLess(count, 2.1)
 
-    def test_move_n_left(self):
-
-        result_matrix = np.zeros((4, 4), dtype="int")
-
-        result_matrix[0, 0] = 2
-
-        self.logic.matrix1 = np.zeros((4, 4), dtype="int")
-
-        self.logic.matrix1[0, 2] = 2
-
-        self.logic.matrix1[0] = self.logic.move_n_left(self.logic.matrix1[0])
-
-        self.assertEqual(self.logic.matrix1.all(), result_matrix.all())
-        self.assertEqual(self.logic.score, 0)
-
     def test_move_left(self):
 
         result_matrix = np.zeros((4, 4), dtype="int")
 
         result_matrix[0, 0] = 4
 
-        self.logic.matrix1 = np.zeros((4, 4), dtype="int")
+        self.game.matrix = np.zeros((4, 4), dtype="int")
 
-        self.logic.matrix1[0, 2] = 2
-        self.logic.matrix1[0, 3] = 2
+        self.game.matrix[0, 2] = 2
+        self.game.matrix[0, 3] = 2
 
-        self.logic.move_left(self.logic.matrix1)
+        self.game.matrix = self.logic.move_left(self.game.matrix)[0]
 
-        self.assertEqual(self.logic.matrix1.all(), result_matrix.all())
+        if np.array_equal(self.game.matrix, result_matrix):
+
+            self.assertEqual(True, True)
+
+        else:
+
+            self.assertEqual(True, False)
+
         self.assertEqual(self.logic.score, 4)
 
     def test_move_right(self):
@@ -70,14 +62,21 @@ class tests(unittest.TestCase):
 
         result_matrix[0, 3] = 4
 
-        self.logic.matrix1 = np.zeros((4, 4), dtype="int")
+        self.game.matrix = np.zeros((4, 4), dtype="int")
 
-        self.logic.matrix1[0, 0] = 2
-        self.logic.matrix1[0, 1] = 2
+        self.game.matrix[0, 0] = 2
+        self.game.matrix[0, 1] = 2
 
-        self.logic.move_right(self.logic.matrix1)
+        self.game.matrix = self.logic.move_right(self.game.matrix)[0]
 
-        self.assertEqual(self.logic.matrix1.all(), result_matrix.all())
+        if np.array_equal(self.game.matrix, result_matrix):
+
+            self.assertEqual(True, True)
+
+        else:
+
+            self.assertEqual(True, False)
+
         self.assertEqual(self.logic.score, 4)
 
     def test_move_up(self):
@@ -86,14 +85,21 @@ class tests(unittest.TestCase):
 
         result_matrix[0, 0] = 4
 
-        self.logic.matrix1 = np.zeros((4, 4), dtype="int")
+        self.game.matrix = np.zeros((4, 4), dtype="int")
 
-        self.logic.matrix1[0, 0] = 2
-        self.logic.matrix1[1, 0] = 2
+        self.game.matrix[0, 0] = 2
+        self.game.matrix[1, 0] = 2
 
-        self.logic.move_up(self.logic.matrix1)
+        self.game.matrix = self.logic.move_up(self.game.matrix)[0]
 
-        self.assertEqual(self.logic.matrix1.all(), result_matrix.all())
+        if np.array_equal(self.game.matrix, result_matrix):
+
+            self.assertEqual(True, True)
+
+        else:
+
+            self.assertEqual(True, False)
+
         self.assertEqual(self.logic.score, 4)
 
     def test_move_down(self):
@@ -102,19 +108,34 @@ class tests(unittest.TestCase):
 
         result_matrix[3, 0] = 4
 
-        self.logic.matrix1 = np.zeros((4, 4), dtype="int")
+        self.game.matrix = np.zeros((4, 4), dtype="int")
 
-        self.logic.matrix1[0, 0] = 2
-        self.logic.matrix1[1, 0] = 2
+        self.game.matrix[0, 0] = 2
+        self.game.matrix[1, 0] = 2
 
-        self.logic.move_down(self.logic.matrix1)
+        self.game.matrix = self.logic.move_down(self.game.matrix)[0]
 
-        self.assertEqual(self.logic.matrix1.all(), result_matrix.all())
+        if np.array_equal(self.game.matrix, result_matrix):
+
+            self.assertEqual(True, True)
+
+        else:
+
+            self.assertEqual(True, False)
+
         self.assertEqual(self.logic.score, 4)
 
     def test_pygame_key(self):
 
         dict = {}
+
+        result_matrix = np.zeros((4, 4), dtype="int")
+        result_matrix[0, 0] = 4
+
+        self.game.matrix = np.zeros((4, 4), dtype="int")
+
+        self.game.matrix[0, 2] = 2
+        self.game.matrix[0, 3] = 2
 
         type = pygame.KEYDOWN
         dict['unicode'] = None
@@ -125,7 +146,28 @@ class tests(unittest.TestCase):
 
         self.assertEqual(value, "left")
 
+        if np.array_equal(self.game.matrix, result_matrix):
+
+            self.assertEqual(True, True)
+
+        else:
+
+            print(self.game.matrix)
+            print(result_matrix)
+
+            self.assertEqual(self.game.matrix[0,0], result_matrix[0,0])
+
+
+
         dict = {}
+
+        result_matrix = np.zeros((4, 4), dtype="int")
+        result_matrix[0, 3] = 4
+
+        self.game.matrix = np.zeros((4, 4), dtype="int")
+
+        self.game.matrix[0, 0] = 2
+        self.game.matrix[0, 1] = 2
 
         type = pygame.KEYDOWN
         dict['unicode'] = None
@@ -136,7 +178,28 @@ class tests(unittest.TestCase):
 
         self.assertEqual(value, "right")
 
+        if np.array_equal(self.game.matrix, result_matrix):
+
+            self.assertEqual(True, True)
+
+        else:
+
+            print(self.game.matrix)
+            print(result_matrix)
+
+            self.assertEqual(self.game.matrix[0,0], result_matrix[0,0])
+
+
+
         dict = {}
+
+        result_matrix = np.zeros((4, 4), dtype="int")
+        result_matrix[3, 0] = 4
+
+        self.game.matrix = np.zeros((4, 4), dtype="int")
+
+        self.game.matrix[0, 0] = 2
+        self.game.matrix[1, 0] = 2
 
         type = pygame.KEYDOWN
         dict['unicode'] = None
@@ -147,7 +210,28 @@ class tests(unittest.TestCase):
 
         self.assertEqual(value, "down")
 
+        if np.array_equal(self.game.matrix, result_matrix):
+
+            self.assertEqual(True, True)
+
+        else:
+
+            print(self.game.matrix)
+            print(result_matrix)
+
+            self.assertEqual(self.game.matrix[0,0], result_matrix[0,0])
+
+
+
         dict = {}
+
+        result_matrix = np.zeros((4, 4), dtype="int")
+        result_matrix[0, 0] = 4
+
+        self.game.matrix = np.zeros((4, 4), dtype="int")
+
+        self.game.matrix[0, 0] = 2
+        self.game.matrix[1, 0] = 2
 
         type = pygame.KEYDOWN
         dict['unicode'] = None
@@ -157,6 +241,19 @@ class tests(unittest.TestCase):
         value = self.game.game_handler(event)
 
         self.assertEqual(value, "up")
+
+        if np.array_equal(self.game.matrix, result_matrix):
+
+            self.assertEqual(True, True)
+
+        else:
+
+            print(self.game.matrix)
+            print(result_matrix)
+
+            self.assertEqual(self.game.matrix[0,0], result_matrix[0,0])
+
+
 
         dict = {}
 

@@ -67,7 +67,7 @@ class Game():
 
             Args:
                 
-            event: pygame-event, joka tarkastetaan
+            event: pygame-event, joka tarkastetaan.
 
         """
 
@@ -79,7 +79,10 @@ class Game():
 
                 matrix_before = self.matrix.copy()
 
-                self.matrix, key_pressed = self.logic.move_left(self.matrix)[0], self.logic.move_left(self.empty_matrix)[1]
+                result = self.logic.move_left(self.matrix)
+
+                self.matrix = result[0]
+                key_pressed = result[1]
 
                 if np.array_equal(matrix_before, self.matrix):
                     pass
@@ -90,7 +93,10 @@ class Game():
 
                 matrix_before = self.matrix.copy()
 
-                self.matrix, key_pressed = self.logic.move_right(self.matrix)[0], self.logic.move_right(self.empty_matrix)[1]
+                result = self.logic.move_right(self.matrix)
+
+                self.matrix = result[0]
+                key_pressed = result[1]
 
                 if np.array_equal(matrix_before, self.matrix):
                     pass
@@ -101,7 +107,10 @@ class Game():
 
                 matrix_before = self.logic.matrix1.copy()
 
-                self.matrix, key_pressed = self.logic.move_up(self.matrix)[0], self.logic.move_up(self.empty_matrix)[1]
+                result = self.logic.move_up(self.matrix)
+
+                self.matrix = result[0]
+                key_pressed = result[1]
 
                 if np.array_equal(matrix_before, self.matrix):
                     pass
@@ -112,7 +121,10 @@ class Game():
 
                 matrix_before = self.logic.matrix1.copy()
 
-                self.matrix, key_pressed = self.logic.move_down(self.matrix)[0], self.logic.move_down(self.empty_matrix)[1]
+                result = self.logic.move_down(self.matrix)
+
+                self.matrix = result[0]
+                key_pressed = result[1]
 
                 if np.array_equal(matrix_before, self.matrix):
                     pass
