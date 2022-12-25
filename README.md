@@ -7,9 +7,9 @@ Tämä sovellus on siis työpyötä versio tutusta 2048 pelistä. Se on toteutet
 
 [Käyttöohje](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/Kayttoohje.md)
 <br/>
-[Arkkitehtuuri](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/arkkitehtuuri.md)
-<br/>
 [Vaatimusmäärittely](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/vaatimusmaarittely.md)
+<br/>
+[Arkkitehtuuri](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/arkkitehtuuri.md)
 <br/>
 [Testausdokumentti](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/testausdokumentti.md)
 <br/>
