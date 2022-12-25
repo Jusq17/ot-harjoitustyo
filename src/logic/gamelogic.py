@@ -25,19 +25,9 @@ class Logic:
         # luodaan pelimatriisi("lauta")
 
         self.board_size = 4
-        self.matrix1 = np.zeros(
-            (self.board_size, self.board_size), dtype="int")
-
-        file = open("data/highscore.txt", "r")
-        content = file.readlines()
-        file.close()
 
         self.score = 0
-        self.highscore = int(content[0])
-
-    def __str__(self):
-
-        return str(self.matrix1)
+        self.highscore = int(self.file_manager.return_hs())
 
     def place_n(self, matrix):
         """
@@ -135,6 +125,8 @@ class Logic:
                     row[l+1] = 0
 
                 if self.score > self.highscore:
+
+                    self.highscore = self.score
 
                     self.file_manager.write_hs(self.score)
 

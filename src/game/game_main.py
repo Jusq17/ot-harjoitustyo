@@ -101,8 +101,6 @@ class Game():
 
             if event.key == pygame.K_DOWN:
 
-                matrix_before = self.logic.matrix1.copy()
-
                 result = self.logic.move_down(self.matrix)
 
                 self.matrix = result[0]
