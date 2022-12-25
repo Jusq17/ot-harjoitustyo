@@ -35,4 +35,4 @@ Käytä nuolinäppäimiä pelataksesi peliä. Kun saavut tilanteeseen, jossa et 
 ## Konfiguraatio
 
 Pelilaudan laatikoiden värit muuttuvat niiden numeroiden perusteella. Näiden laatikkojen värejä voi muokata data kansioissa olevan colors.ini tiedoston kautta. Voidaan esimerkiksi vaihtaa numeroa 32 vastaavan laatikon väriä muokkaamalla kohtaa color_32 arvoa. 
-### Huom! Arvon täytyy olla muotoa _numero_,välimerkki,_numero_,välimerkki,_numero_
+### Huom! Arvon täytyy olla muotoa _numero_, _numero_, _numero_ ja jokaisen numeron jälkeen pitää olla yksi välimerkki. Numeron pitää olla myös välillä 0-255.
