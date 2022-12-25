@@ -6,6 +6,7 @@ import unittest
 import pygame
 import sys
 
+
 class tests(unittest.TestCase):
 
     def setUp(self):
@@ -155,9 +156,7 @@ class tests(unittest.TestCase):
             print(self.game.matrix)
             print(result_matrix)
 
-            self.assertEqual(self.game.matrix[0,0], result_matrix[0,0])
-
-
+            self.assertEqual(self.game.matrix[0, 0], result_matrix[0, 0])
 
         dict = {}
 
@@ -187,9 +186,7 @@ class tests(unittest.TestCase):
             print(self.game.matrix)
             print(result_matrix)
 
-            self.assertEqual(self.game.matrix[0,0], result_matrix[0,0])
-
-
+            self.assertEqual(self.game.matrix[0, 3], result_matrix[0, 3])
 
         dict = {}
 
@@ -219,9 +216,7 @@ class tests(unittest.TestCase):
             print(self.game.matrix)
             print(result_matrix)
 
-            self.assertEqual(self.game.matrix[0,0], result_matrix[0,0])
-
-
+            self.assertEqual(self.game.matrix[0, 3], result_matrix[0, 3])
 
         dict = {}
 
@@ -251,9 +246,7 @@ class tests(unittest.TestCase):
             print(self.game.matrix)
             print(result_matrix)
 
-            self.assertEqual(self.game.matrix[0,0], result_matrix[0,0])
-
-
+            self.assertEqual(self.game.matrix[0, 0], result_matrix[0, 0])
 
         dict = {}
 
@@ -276,7 +269,6 @@ class tests(unittest.TestCase):
         game_state_value = self.game.menu_handler(event)
 
         self.assertEqual(game_state_value, 1)
-
 
 
 if __name__ == "__main__":

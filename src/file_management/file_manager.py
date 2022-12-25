@@ -1,35 +1,60 @@
 
 import configparser
 
+
 class file_mnger():
+
+    """
+        Luokka, joka hoitaa kaiken tiedostonhallintaan liittyvän.
+
+        Attributes:
+
+            highscore_path: polku highscore.txt tiedostoon
+
+    """
 
     def __init__(self):
 
-        #def read_config():
-        
-        file = open("data/highscore.txt", "r")
-        content = file.readlines()
-        file.close()
-
-        self.highscore = content[0]
+        self.highscore_path = "data/highscore.txt"
 
     def return_hs(self):
+        """
+            Metodi, joka palauttaa highscoren
 
-        file = open("data/highscore.txt", "r")
-        content = file.readlines()
-        file.close()
+            args: none
 
-        self.highscore = content[0]
+        """
+
+        with open(self.highscore_path, "r") as f:
+
+            content = f.readlines()
+            f.close()
+
+            self.highscore = content[0]
 
         return self.highscore
 
     def write_hs(self, score):
+        """
 
-        f = open("data/highscore.txt", "w")
-        f.write(str(score))
-        f.close()
+            Metodi, joka kirjoitaa uuden highscoren tiedostoon.
+
+            args: none
+
+        """
+
+        with open("data/highscore.txt", "w") as f:
+
+            f.write(str(score))
+            f.close()
 
     def return_colors(self):
+        """
+            Metodi, joka palauttaa colors.ini tiedoston värit käytettävässä muodossa.
+
+            args: none
+
+        """
 
         config = configparser.ConfigParser()
         config.read("data/colors.ini")
@@ -41,7 +66,7 @@ class file_mnger():
 
         for color in color_names:
 
-            color_tuple = tuple(map(int,color_section[color].split(', ')))
+            color_tuple = tuple(map(int, color_section[color].split(', ')))
 
             colors.append(color_tuple)
 

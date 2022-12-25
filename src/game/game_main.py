@@ -5,6 +5,7 @@ import numpy as np
 from logic import gamelogic
 from UI import UI
 
+
 class Game():
 
     """
@@ -39,12 +40,11 @@ class Game():
         pygame.display.set_caption("2048")
 
     def menu_handler(self, event):
-
         """
             Metodi, joka hoitaa pygame-eventtien tarkastamisen, kun pelaaja on start-menussa.
 
             Args:
-                
+
             event: pygame-event, joka tarkastetaan
 
         """
@@ -60,13 +60,12 @@ class Game():
         return self.game_state
 
     def game_handler(self, event):
-
         """
             Metodi, joka hoitaa pygame-eventtien tarkastamisen, kun pelaaja pelaa peliä.
             Palauttaa painetun näppäimen arvoa vastaavan merkkijonon.
 
             Args:
-                
+
             event: pygame-event, joka tarkastetaan.
 
         """
@@ -146,12 +145,11 @@ class Game():
             return key_pressed
 
     def event_handler(self):
-
         """
             Metodi, joka hoitaa pygame-eventtien tarkastamisen.
 
             Args:
-                
+
             none
 
         """
@@ -172,7 +170,6 @@ class Game():
                 sys.exit()
 
     def run(self):
-
         """
             Funktio, joka päivittää ruudun kellon määräämällä frameratella.
 

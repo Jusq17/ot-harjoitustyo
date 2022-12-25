@@ -1,6 +1,7 @@
 
 import game.game_main as game
 
+
 def main():
 
     main_game = game.Game()

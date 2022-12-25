@@ -5,6 +5,7 @@ from file_management import file_manager
 import numpy as np
 import random
 
+
 class Logic:
 
     """
@@ -27,7 +28,8 @@ class Logic:
         # luodaan pelimatriisi("lauta")
 
         self.board_size = 4
-        self.matrix1 = np.zeros((self.board_size, self.board_size), dtype="int")
+        self.matrix1 = np.zeros(
+            (self.board_size, self.board_size), dtype="int")
 
         file = open("data/highscore.txt", "r")
         content = file.readlines()
@@ -41,12 +43,11 @@ class Logic:
         return str(self.matrix1)
 
     def place_n(self, matrix):
-
         """
             Metodi, joka laittaa numeron 2 tyhjään tilaan matriisissa.
             Käytetään matriisin alustuksessa ja jokaisen siirron jälkeen.
 
-            Args: none
+            Args: matrix
 
         """
 
@@ -73,11 +74,10 @@ class Logic:
         return matrix
 
     def create_start_pos(self, matrix):
-
         """
             Metodi, joka alustaa matriisin. Käytetään myös pelin uudelleenaloituksessa.
 
-            Args: ei mitään
+            Args: matrix
 
         """
 
@@ -96,7 +96,6 @@ class Logic:
         return matrix
 
     def move_n_left(self, row):
-
         """
             Metodi, joka siirtä numeroita vasemmalle, jotta niiden väliin ei jää tyhjiä tiloja.
 
@@ -115,7 +114,6 @@ class Logic:
         return row
 
     def move_row_left(self, row):
-
         """
             Metodi, joka yhdistää vierekkäin olevat numerot toisiinsa, jos numerot ovat yhtä suuret.
 
@@ -148,7 +146,6 @@ class Logic:
             row = self.move_n_left(row)
 
     def move_left(self, matrix):
-
         """
             Move left funktio siirtää 2048 numerot vasemmalle puolelle
             Jos samat numerot ovat vierekkäin ne yhtyvät yhdeksi numeroksi
@@ -157,7 +154,7 @@ class Logic:
 
             Args:
 
-            matrix1: Matriisi, jota siirretään
+            matrix: Matriisi, jota siirretään
 
         """
 
@@ -167,17 +164,16 @@ class Logic:
 
             self.move_row_left(row)
 
-        return matrix,"left"
+        return matrix, "left"
 
     def move_right(self, matrix):
-
         """
             Funktio, joka siirtää numeroita oikealle samalla tavalla kuin move_left() funktio.
             Matriisi käännetään ja sitten käytetään move_left() funktiota.
 
             Args:
 
-            matrix1: Matriisi, jota siirretään
+            matrix: Matriisi, jota siirretään
 
         """
 
@@ -187,17 +183,16 @@ class Logic:
 
         matrix = np.fliplr(reversed_matrix)
 
-        return matrix,"right"
+        return matrix, "right"
 
     def move_up(self, matrix):
-
         """
             Funktio, joka siirtää numeroita ylös samalla tavalla kuin move_left() funktio.
             Matriisi käännetään ja sitten käytetään move_left() funktiota.
 
             Args:
 
-            matrix1: Matriisi, jota siirretään
+            matrix: Matriisi, jota siirretään
 
         """
 
@@ -207,17 +202,16 @@ class Logic:
 
         matrix = np.transpose(reversed_matrix)
 
-        return matrix,"up"
+        return matrix, "up"
 
     def move_down(self, matrix):
-
         """
             Funktio, joka siirtää numeroita alas samalla tavalla kuin move_left() funktio.
             Matriisi käännetään ja sitten käytetään move_left() funktiota.
 
             Args:
 
-            matrix1: Matriisi, jota siirretään
+            matrix: Matriisi, jota siirretään
 
         """
 
@@ -226,5 +220,5 @@ class Logic:
         self.move_right(reversed_matrix)
 
         matrix = np.transpose(reversed_matrix)
-        
-        return matrix,"down"
+
+        return matrix, "down"

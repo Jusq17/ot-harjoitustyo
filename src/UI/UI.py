@@ -2,7 +2,25 @@
 import pygame as pygame
 from file_management import file_manager
 
+
 class UI():
+
+    """
+        Luokka, joka vastaa Käyttöliittymän ja grafiikan piirtämisestä näytölle.
+
+        Attributes:
+
+            colors: numerollisten laatikoiden värit
+            black: musta väri
+            gray: harmaa väri
+            rows: laudan rivien määrä
+            cols: laudan sarakkeiden määrä
+            block_size: laudan laatikoiden koko
+            one_digit: fontti yksinumeroisille
+            two_digit: fontti kaksinumeroisille
+            three_digit: fontti kolmenumeroisille ja isommille
+            score_font: fontti scorea varten
+    """
 
     def __init__(self):
 
@@ -26,6 +44,15 @@ class UI():
         self.score_font = pygame.font.Font('freesansbold.ttf', 34)
 
     def draw_matrix(self, matrix, screen):
+        """
+            Metodi, joka vastaa pelimatrsiin piirtämisestä.
+
+            Args:
+
+                matrix: matriisi, josta tieto saadaan piirtoa varten
+                screen: pygame ikkuna, johon grafiikat piirretään
+
+        """
 
         for row in range(0, 4):
 
@@ -95,12 +122,46 @@ class UI():
                         screen.blit(self.two_digit.render(
                             number, True, (0, 0, 0)), (x + self.block_size/4, y + self.block_size/4))
 
-                    else:
+                    elif 100 < int(number) < 1000:
 
                         screen.blit(self.three_digit.render(
                             number, True, (0, 0, 0)), (x + self.block_size/7, y + self.block_size/4))
 
+                    else:
+
+                        screen.blit(self.three_digit.render(
+                            number, True, (0, 0, 0)), (x + self.block_size/18, y + self.block_size/4))
+
+    def draw_menu_UI(self, screen):
+        """
+            Metodi, joka vastaa start-menun piirtämisestä
+
+            Args:
+
+                screen: pygame ikkuna, johon grafiikat piirretään
+
+        """
+
+        screen.fill(self.black)
+
+        screen.blit(self.one_digit.render(
+            "2048", True, (self.colors[3])), (300, 80))
+        screen.blit(self.three_digit.render(
+            "Press Enter to start!", True, (255, 255, 255)), (100, 300))
+        screen.blit(self.score_font.render(
+            "Use the arrow keys to move the numbers!", True, (self.colors[6])), (50, 500))
+
     def draw_main_UI(self, screen, matrix, score):
+        """
+            Metodi, joka vastaa koko käyttöliittymästä
+
+            Args:
+
+                matrix: matriisi, josta tieto saadaan piirtoa varten
+                screen: pygame ikkuna, johon grafiikat piirretään
+                score: score, joka piirretään
+
+        """
 
         highscore = self.file_manager.return_hs()
 
@@ -113,14 +174,3 @@ class UI():
                     highscore, True, (255, 255, 255)), (400, 20))
         screen.blit(self.three_digit.render(
             "Press R to retry", True, (255, 255, 255)), (180, 720))
-
-    def draw_menu_UI(self, screen):
-
-        screen.fill(self.black)
-
-        screen.blit(self.one_digit.render(
-            "2048", True, (self.colors[3])), (300, 80))
-        screen.blit(self.three_digit.render(
-            "Press Enter to start!", True, (255, 255, 255)), (100, 300))
-        screen.blit(self.score_font.render(
-            "Use the arrow keys to move the numbers!", True, (self.colors[6])), (50, 500))
