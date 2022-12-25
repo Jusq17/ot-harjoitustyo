@@ -129,7 +129,7 @@ sequenceDiagram
   participant Logic
   User->>Game: Press left arrowkey
   Game->>logic: move_left(matrix)
-  logic->>Game: matrix
+  Logic->>Game: matrix
   Game->>UI: draw_main_UI(matrix, screen, score)
 ```
 
@@ -143,7 +143,7 @@ sequenceDiagram
   participant Logic
   User->>Game: Press "R" key
   Game->>logic: create_start_pos(matrix)
-  logic->>Game: matrix
+  Logic->>Game: matrix
   Game->>UI: draw_main_UI(matrix, screen, score)
   
 ```
