@@ -30,9 +30,9 @@ class file_mnger():
             content = f.readlines()
             f.close()
 
-            self.highscore = content[0]
+            highscore = content[0]
 
-        return self.highscore
+        return highscore
 
     def write_hs(self, score):
         """
@@ -60,7 +60,7 @@ class file_mnger():
         config.read("data/colors.ini")
 
         color_section = config["colors"]
-        color_names = [color for color in color_section]
+        color_names = list(color_section)
 
         colors = []
 

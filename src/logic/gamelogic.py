@@ -1,10 +1,7 @@
-# Kaikki itse pelin logikkan liittyvät funktiot ovat tässä tiedostossa
-# Esim. 2048 "laudan" "siirto" vasempaan ja oikeaan suuntaan.
 
-from file_management import file_manager
-import numpy as np
 import random
-
+import numpy as np
+from file_management import file_manager
 
 class Logic:
 

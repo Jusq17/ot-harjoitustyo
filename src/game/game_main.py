@@ -26,7 +26,6 @@ class Game():
     def __init__(self):
 
         self.matrix = np.zeros((4, 4), dtype="int")
-        self.empty_matrix = np.zeros((4, 4), dtype="int")
 
         self.game_state = 0
 
@@ -94,8 +93,6 @@ class Game():
                 key_pressed = result[1]
 
             if event.key == pygame.K_UP:
-
-                matrix_before = self.logic.matrix1.copy()
 
                 result = self.logic.move_up(self.matrix)
 
