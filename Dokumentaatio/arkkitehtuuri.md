@@ -50,7 +50,7 @@ sequenceDiagram
   User->>Game: Press left arrowkey
   Game->>logic: move_left(matrix)
   logic->>Game: matrix
-  Game->>UI: draw_main_UI(matrix, screen)
+  Game->>UI: draw_main_UI(matrix, screen, score)
 ```
   
 
@@ -115,4 +115,48 @@ Se on pieni moduuli ja luokka, joka sisältää tiedostojen hallinta metodeja. S
     return_colors()
   }
 
+```
+
+## Päätoiminnallisuuksien sekvenssikaaviot:
+
+### Numeroiden siirto vasemmalle:
+
+```mermaid
+sequenceDiagram
+  actor User
+  participant UI
+  participant Game
+  participant logic
+  User->>Game: Press left arrowkey
+  Game->>logic: move_left(matrix)
+  logic->>Game: matrix
+  Game->>UI: draw_main_UI(matrix, screen, score)
+```
+
+### Uuden pelin aloitus:
+
+```mermaid
+sequenceDiagram
+  actor User
+  participant UI
+  participant Game
+  participant logic
+  User->>Game: Press "R" key
+  Game->>logic: create_start_pos(matrix)
+  logic->>Game: matrix
+  Game->>UI: draw_main_UI(matrix, screen, score)
+  
+```
+
+### Highscoren päivitys:
+
+```mermaid
+sequenceDiagram
+  actor User
+  participant UI
+  participant Game
+  participant file_mngr
+  Game->>Logic
+  Logic->>file_mngr: write_hs()
+  
 ```
