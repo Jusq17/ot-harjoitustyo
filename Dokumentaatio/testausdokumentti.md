@@ -20,3 +20,16 @@ Näin voidaan olla varmoja, että molempien luokkien toiminta onnistuu silloinki
 ## Haarautumakattavuus ja coverage-report
 
 ![](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/kuvat/coverage.JPG)
+
+## Virhetilanteet
+
+Pelaaja ei voi saada virhetilannetta aikaan peliä pelatessa. Ainoat syötteet, jotka pelaaja voi pelissä tehdä ovat: näppäimistön nuolinäppäimet, ENTER-näppäin ja R- näppäin.
+<br/>
+Testien avulla voidaan olla myös varma, että syötteet tekevät, mitä niiden pitäisi.
+<br/>
+<br/>
+
+## Sovelluksen laatuongelmat
+
+Jos colors.ini tiedostoa muunnetaan väärästi ja sinne laitetaan esim. kirjaimia numeroiden sijaan, ohjelma ei osaa ratkaista ongelmaa itse.
+Jostain syystä pelin startmenu-näkymässä ENTER-näppäintä pitää painaa kaksi kertaa.
