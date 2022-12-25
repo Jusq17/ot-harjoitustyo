@@ -21,3 +21,10 @@ Kaikki sovelluken ulkoinen tieto on data kansiossa tiedostoina.
 - Graafinen käyttöliittymä / tehty
 - Tallentaa highscoren / tehty
 - Käyttäjä voi muokata pelin värejä / tehty
+
+## Jatkokehitysideoita
+
+- Käyttäjä luokkien luominen
+- Tietokannan luominen
+- Online leaderboardit
+- Enemmän toiminnallisuutta UI:n suhteen
