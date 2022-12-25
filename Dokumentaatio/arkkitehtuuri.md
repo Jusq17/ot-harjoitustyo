@@ -157,7 +157,6 @@ sequenceDiagram
   participant Game
   participant Logic
   participant file_mngr
-  Game->>Logic
   Logic->>file_mngr: write_hs()
   
 ```
