@@ -1,6 +1,6 @@
 # Testausdokumentti
 
-Testeissä testataan sovelluslogiikkaa ja pygame-eventtien toimintaa. Testataan siis luokkien _Logic_ ja _Game_ toimintaa.
+Sovelluksen sovelluslogiikkaa ja pygame-eventtien toimintaa testataan automatisoitujen yksikkötestien avulla. Testataan siis luokkien _Logic_ ja _Game_ toimintaa.
 
 ## Luokka Logic
 
