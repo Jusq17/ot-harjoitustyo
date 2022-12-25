@@ -61,7 +61,7 @@ game_main moduuli ja sen luokka Game hoitavat pygame-eventeistä ja mahdollistav
 <br/>
 Luokassa hoidetaan pygame-eventtien tarkistus ja päivitetään pygamen ruutu. Tarkastuksien ja ruudun päivityksen taajuudesta vastaa pygamen pygame.time.Clock(). Sen avulla päivitystaajuudeksi on asetettu 60hz. Pelin grafiikoiden framerate on siis 60fps. Tämä myös varmistaa, että peli pyörii tasaisesti ja vastaa nopeasti pelaajan syötteisiin.
 
-Luokka myös yhdistää kaikki muut moduulit toimivaksi rakenteeksi. Sen run() funktiota kutsutaan, kun sovellus käynnistetään.
+Game-luokka myös yhdistää kaikki muut moduulit toimivaksi rakenteeksi. Sen run() funktiota kutsutaan, kun sovellus käynnistetään.
 
 ## Tiedostojen hallinta
 
@@ -84,6 +84,8 @@ Se on pieni moduuli ja luokka, joka sisältää tiedostojen hallinta metodeja. S
   Logic --> file_mnger
   
   class Game{
+     matrix
+  
      menu_handler()
      game_handler()
      event_handler()
@@ -91,7 +93,6 @@ Se on pieni moduuli ja luokka, joka sisältää tiedostojen hallinta metodeja. S
   }
   
   class Logic{
-    game_matrix: matrix1
     
     place_n()
     create_start_pos()
