@@ -1,6 +1,6 @@
 # Testausdokumentti
 
-Testeissä testataan sovelluslogiikkaa ja pygame-eventtien toimintaa. Testataan siis luokkien Logic ja Game toimintaa.
+Testeissä testataan sovelluslogiikkaa ja pygame-eventtien toimintaa. Testataan siis luokkien _Logic_ ja _Game_ toimintaa.
 
 ## Luokka Logic
 
@@ -15,5 +15,4 @@ Testataan myös, että create_start_pos() metodi tekee matriisin alustuksen oike
 Testaamme, että Game-luokan pygame-eventeistä tapahtuu odotettu tilanne. Luokkia Game ja Logic testataan yhdessä näissä testeissä.
 <br/>
 Testataan, että kun kutsutaan Game-luokan game_handler(event) metodia tietynlaisella pygame-eventillä, niin saadaan haluttu muutos matriisissa.
-<br/>
 Näin voidaan olla varmoja, että molempien luokkien toiminta onnistuu silloinkin, kun ne tekevät yhteistyötä.
