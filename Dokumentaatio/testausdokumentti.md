@@ -23,9 +23,9 @@ Näin voidaan olla varmoja, että molempien luokkien toiminta onnistuu silloinki
 
 ![](https://github.com/Jusq17/ot-harjoitustyo/blob/master/Dokumentaatio/kuvat/coverage.JPG)
 
-## Virhetilanteet
+## Järjestelmätestaus manuaalisesti
 
-Pelaaja ei voi saada virhetilannetta aikaan peliä pelatessa. Ainoat syötteet, jotka pelaaja voi pelissä tehdä ovat: näppäimistön nuolinäppäimet, ENTER-näppäin ja R-näppäin.
+Pelaaja ei voi saada virhetilannetta aikaan peliä pelatessa. Ainoat syötteet, jotka pelaaja voi pelissä tehdä ovat: näppäimistön nuolinäppäimet, ENTER-näppäin ja R-näppäin. Peliä on testattu manuaalisesti antamalla erilaisia syötteitä start-menu näkymässä ja peli-näkymässä.
 <br/>
 <br/>
 Testien avulla voidaan olla myös varma, että syötteet tekevät, mitä niiden pitäisi.
