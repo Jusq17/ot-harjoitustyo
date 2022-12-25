@@ -35,4 +35,3 @@ Testien avulla voidaan olla myös varma, että syötteet tekevät, mitä niiden 
 ## Sovelluksen laatuongelmat
 
 Jos colors.ini tiedostoa muunnetaan väärästi ja sinne laitetaan esim. kirjaimia numeroiden sijaan, ohjelma ei osaa ratkaista ongelmaa itse.
-Jostain syystä pelin startmenu-näkymässä ENTER-näppäintä pitää painaa kaksi kertaa.
