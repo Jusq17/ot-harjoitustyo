@@ -49,7 +49,7 @@ sequenceDiagram
   participant logic
   User->>Game: Press left arrowkey
   Game->>logic: move_left(matrix)
-  logic->>Game: matrix
+  logic-->Game: matrix
   Game->>UI: draw_main_UI(matrix, screen, score)
 ```
   
