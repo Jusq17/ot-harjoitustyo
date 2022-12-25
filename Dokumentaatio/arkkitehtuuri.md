@@ -2,7 +2,7 @@
 
 ## Sovelluksen rakenne
 
-Sovelluksessa on 4 pakkausta/kansiota, jotka hoitavat sovelluksen eri toiminnalisuuksia.
+Sovelluksessa on 4 pakkausta/kansiota, jotka hoitavat sovelluksen eri toiminnallisuuksia.
 <br/>
 _logic_ vastaa sovelluslogiikasta, _UI_ käyttöliittymästä, _game_ syötteistä ja pelin pyörittämisestä ja _file_management_ tiedostojen talletuksesta ja hallinnasta.
 
@@ -33,7 +33,7 @@ Käyttöliittymästä vastaa UI moduuli ja sen luokka UI.
 </br>
 Tämä moduuli vastaa käyttöliittymän ja kaiken muun grafiikan piirtämisestä näytölle.
 
-Pelissä on vain kaksi eri näkymää: start-menu ja varsinainen pelinäkymä. Koska näkymiä on niin vähän ja start-menu on todella yksinkertainen, molemmat näkymät ovat samassa luokassa.
+Pelissä on vain kaksi eri näkymää: start-menu ja varsinainen pelinäkymä. Koska näkymiä on niin vähän ja start-menu on todella yksinkertainen, molemmat näkymät toteutetaan samassa luokassa.
 </br>
 </br>
 Ne piirretään näytölle UI-luokan draw_menu_UI() ja draw_main_UI() metodien avulla.
